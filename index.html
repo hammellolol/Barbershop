@@ -1,1493 +1,446 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elegance Barbershop — Herrenfriseur in Memmingen</title>
-    <meta
-      name="description"
-      content="Elegance Barbershop in Memmingen: Haarschnitt und Bartpflege mit Handwerk und Ruhe. Hinter dem Salzstadel 1, 87700 Memmingen."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --ink: #0c0a08;
-        --panel: #161109;
-        --panel-2: #1d1610;
-        --brass: #c69a4e;
-        --brass-soft: #e9cd97;
-        --cream: #efe6d5;
-        --stone: #a39b8c;
-        --line: rgba(239, 230, 213, 0.14);
-        --line-strong: rgba(239, 230, 213, 0.28);
-        color-scheme: dark;
-      }
-      @media (prefers-color-scheme: light) {
-        :root {
-          --ink: #f6f1e5;
-          --panel: #ffffff;
-          --panel-2: #efe7d5;
-          --brass: #8c5d18;
-          --brass-soft: #684610;
-          --cream: #1c160f;
-          --stone: #595245;
-          --line: rgba(28, 22, 15, 0.15);
-          --line-strong: rgba(28, 22, 15, 0.3);
-          color-scheme: light;
-        }
-      }
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elegance Barbershop Memmingen | Herrenfriseur, Bartpflege & Fade Cuts</title>
+  <meta name="description" content="Elegance Barbershop in Memmingen – Premium Herrenfriseur für Haarschnitt, Bartpflege, Fade Cuts und mehr. 4,7 Sterne auf Google. Jetzt Termin vereinbaren!"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a;
+      --white: #f7f5f2;
+      --gold: #c9a84c;
+      --gray: #1a1a1a;
+      --mid: #2a2a2a;
+      --muted: #888;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
 
-      header.nav,
-      .hero {
-        --ink: #0c0a08;
-        --panel: #161109;
-        --panel-2: #1d1610;
-        --brass: #c69a4e;
-        --brass-soft: #e9cd97;
-        --cream: #efe6d5;
-        --stone: #a89d89;
-        --line: rgba(239, 230, 213, 0.14);
-        --line-strong: rgba(239, 230, 213, 0.28);
-      }
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.6rem 3rem; transition: background .4s;
+    }
+    nav.scrolled { background: rgba(10,10,10,.96); backdrop-filter: blur(8px); }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem; letter-spacing: .12em;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(247,245,242,.65); text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--gold); color: var(--black) !important;
+      padding: .55rem 1.4rem; font-weight: 500 !important;
+    }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background: var(--ink);
-        color: var(--cream);
-        font-family: "Inter", sans-serif;
-        font-weight: 300;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-      .eyebrow {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.75rem;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--brass);
-        font-weight: 500;
-      }
-      h1,
-      h2,
-      h3 {
-        font-family: "Fraunces", serif;
-        font-weight: 500;
-        letter-spacing: -0.01em;
-        color: var(--cream);
-      }
-      .wrap {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 0 clamp(20px, 5vw, 64px);
-      }
-      ::selection {
-        background: var(--brass);
-        color: var(--ink);
-      }
+    /* HERO */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; text-align: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 90% 50% at 50% 110%, rgba(201,168,76,.6), rgba(201,168,76,.2) 45%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 50% -5%, rgba(201,168,76,.05), transparent),
+        linear-gradient(160deg, #0e0c09 0%, #1c1a14 50%, #0e0c09 100%);
+    }
+    .hero-content { position: relative; z-index: 2; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; }
+    .hero-tag { font-size: .62rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; }
+    .hero-title .line1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4.5rem, 16vw, 12rem); line-height: .9; letter-spacing: .04em; display: block; color: var(--white); }
+    .hero-title .line2 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(3.5rem, 13vw, 9.5rem); color: var(--gold); display: block; line-height: 1; }
+    .hero-sub { font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: rgba(247,245,242,.55); margin-top: 1.8rem; }
+    .hero-divider { width: 36px; height: 1px; background: var(--gold); margin: 1.8rem auto; }
+    .hero-rating { margin-top: 3rem; }
+    .hero-rating a { color: inherit; text-decoration: none; }
+    .hero-rating .score { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--gold); line-height: 1; }
+    .hero-rating .count { font-size: .62rem; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; margin-top: .2rem; }
 
-      /* A11y Focus Styles */
-      a:focus-visible,
-      button:focus-visible,
-      input:focus-visible,
-      textarea:focus-visible,
-      select:focus-visible {
-        outline: 3px solid var(--brass);
-        outline-offset: 3px;
-      }
+    /* MARQUEE */
+    .marquee-wrap { background: var(--gold); color: var(--black); padding: .9rem 0; overflow: hidden; }
+    .marquee-track { display: flex; animation: marquee 18s linear infinite; white-space: nowrap; }
+    .marquee-item { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: .25em; padding: 0 2.5rem; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-      /* ---------- NAV ---------- */
-      header.nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        background: rgba(12, 10, 8, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid transparent;
-        transition:
-          border-color 0.4s ease,
-          background 0.4s ease;
-      }
-      header.nav.scrolled {
-        border-bottom: 1px solid var(--line);
-        background: rgba(12, 10, 8, 0.95);
-      }
-      .nav-inner {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 16px clamp(20px, 5vw, 64px);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-family: "Fraunces", serif;
-        font-size: 1.05rem;
-        letter-spacing: 0.02em;
-      }
-      .brand .mark {
-        width: 36px;
-        height: 36px;
-        border: 1px solid var(--brass);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.7rem;
-        font-weight: 500;
-        letter-spacing: 0.05em;
-        color: var(--brass-soft);
-      }
-      nav.links {
-        display: flex;
-        gap: clamp(16px, 2.4vw, 36px);
-        font-size: 0.9rem;
-        letter-spacing: 0.02em;
-      }
-      nav.links a {
-        color: var(--stone);
-        position: relative;
-        padding: 4px 0;
-        transition: color 0.25s ease;
-      }
-      nav.links a:hover {
-        color: var(--cream);
-      }
-      nav.links a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0;
-        height: 2px;
-        background: var(--brass);
-        transition: width 0.3s ease;
-      }
-      nav.links a:hover::after {
-        width: 100%;
-      }
-      .nav-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid var(--brass);
-        color: var(--brass-soft);
-        padding: 10px 20px;
-        font-size: 0.85rem;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        border-radius: 2px;
-        transition:
-          background 0.25s ease,
-          color 0.25s ease;
-        white-space: nowrap;
-        min-height: 44px; /* Touch target size */
-      }
-      .nav-cta:hover {
-        background: var(--brass);
-        color: var(--ink);
-      }
-      .burger {
-        display: none;
-        background: none;
-        border: 1px solid var(--line-strong);
-        border-radius: 4px;
-        color: var(--cream);
-        font-size: 1.2rem;
-        padding: 8px 12px;
-        min-height: 44px;
-        min-width: 44px;
-        cursor: pointer;
-      }
+    /* SECTION BASE */
+    .section { padding: 8rem 3rem; }
+    .label { font-size: .65rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .big-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6.5rem); line-height: .95; letter-spacing: .03em; }
+    .body-text { font-size: .88rem; line-height: 1.9; color: rgba(247,245,242,.65); }
 
-      @media (max-width: 860px) {
-        nav.links {
-          position: fixed;
-          inset: 68px 0 0 0;
-          height: calc(100vh - 68px);
-          background: var(--ink);
-          flex-direction: column;
-          padding: 32px clamp(20px, 5vw, 64px);
-          transform: translateX(100%);
-          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-          border-bottom: 1px solid var(--line);
-          gap: 20px;
-          font-size: 1.1rem;
-          overflow-y: auto;
-        }
-        nav.links.open {
-          transform: translateX(0);
-        }
-        .burger {
-          display: block;
-        }
-        .nav-cta {
-          display: none;
-        }
-        .mobile-only-cta {
-          display: inline-flex;
-          margin-top: 12px;
-          text-align: center;
-          justify-content: center;
-        }
-      }
+    /* ABOUT */
+    #about { background: var(--gray); display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
+    .about-left .big-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); }
+    .about-img {
+      width: 100%; aspect-ratio: 3/4;
+      background: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1200&q=95') center/cover no-repeat;
+      position: relative;
+    }
+    .about-right { position: relative; }
+    .about-num { position: absolute; bottom: -2rem; left: -2rem; background: var(--gold); color: var(--black); padding: 1.5rem 2rem; }
+    .about-num .n { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; line-height: 1; display: block; }
 
-      /* ---------- HERO ---------- */
-      .hero {
-        position: relative;
-        min-height: 100svh;
-        display: flex;
-        align-items: flex-end;
-        padding-top: 110px;
-        overflow: hidden;
-      }
-      .hero-media {
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        overflow: hidden;
-      }
-      .hero-media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 60% 45%;
-        filter: saturate(0.92) contrast(1.02);
-      }
-      .hero-media::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(
-            0deg,
-            rgba(10, 8, 6, 0.96) 4%,
-            rgba(10, 8, 6, 0.65) 42%,
-            rgba(10, 8, 6, 0.35) 65%,
-            rgba(10, 8, 6, 0.7) 100%
-          ),
-          linear-gradient(
-            90deg,
-            rgba(10, 8, 6, 0.75) 0%,
-            rgba(10, 8, 6, 0.15) 50%
-          );
-      }
-      .hero-inner {
-        width: 100%;
-        padding-bottom: clamp(48px, 7vw, 88px);
-      }
-      .rating-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        border: 1px solid var(--line-strong);
-        background: rgba(22, 17, 9, 0.75);
-        padding: 8px 14px;
-        border-radius: 2px;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.8rem;
-        color: var(--cream);
-        margin-bottom: 28px;
-      }
-      .rating-badge b {
-        color: var(--brass-soft);
-        font-weight: 500;
-      }
-      .stars {
-        color: var(--brass);
-        letter-spacing: 1px;
-      }
-      .hero h1 {
-        font-size: clamp(2.4rem, 6.5vw, 5.2rem);
-        line-height: 1.05;
-        max-width: 15ch;
-      }
-      .hero h1 em {
-        font-style: italic;
-        font-weight: 300;
-        color: var(--brass-soft);
-      }
-      .hero-sub {
-        margin-top: 22px;
-        max-width: 48ch;
-        color: #c7bfb1;
-        font-size: 1.05rem;
-      }
-      .hero-cta {
-        margin-top: 38px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 14px 28px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        letter-spacing: 0.03em;
-        border-radius: 2px;
-        min-height: 48px;
-        transition:
-          transform 0.25s ease,
-          background 0.25s ease,
-          color 0.25s ease,
-          border-color 0.25s ease;
-      }
-      .btn-primary {
-        background: var(--brass);
-        color: #0c0a08;
-        border: 1px solid var(--brass);
-      }
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        background: var(--brass-soft);
-        border-color: var(--brass-soft);
-      }
-      .btn-ghost {
-        border: 1px solid var(--line-strong);
-        color: var(--cream);
-        background: rgba(12, 10, 8, 0.4);
-      }
-      .btn-ghost:hover {
-        border-color: var(--brass);
-        color: var(--brass-soft);
-        transform: translateY(-2px);
-      }
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--black); border-top: 1px solid rgba(201,168,76,.15);
+      padding: 2.5rem 3rem; display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; justify-content: center;
+    }
+    .trust-btn {
+      display: inline-flex; align-items: center; gap: .7rem;
+      padding: .85rem 1.8rem; border: 1px solid rgba(201,168,76,.4);
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none; transition: background .25s, color .25s;
+    }
+    .trust-btn:hover { background: var(--gold); color: var(--black); }
+    .trust-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
-      /* ---------- SECTIONS ---------- */
-      section {
-        padding: clamp(60px, 8vw, 120px) 0;
-        position: relative;
-      }
-      .divider {
-        border: 0;
-        height: 1px;
-        background: var(--line);
-      }
-      .section-head {
-        max-width: 640px;
-        margin-bottom: clamp(36px, 5vw, 64px);
-      }
-      .section-head h2 {
-        font-size: clamp(1.8rem, 3.4vw, 2.7rem);
-        margin-top: 14px;
-      }
-      .reveal {
-        opacity: 0;
-        transform: translateY(22px);
-        transition:
-          opacity 0.8s ease,
-          transform 0.8s ease;
-      }
-      .reveal.in {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .reveal {
-          opacity: 1;
-          transform: none;
-          transition: none;
-        }
-        html {
-          scroll-behavior: auto;
-        }
-        .hero-media img {
-          transform: none !important;
-        }
-      }
+    /* SERVICES */
+    #services { background: var(--black); }
+    .services-list { max-width: 860px; margin: 0 auto; }
+    .service-item { border-top: 1px solid rgba(247,245,242,.1); overflow: hidden; }
+    .service-item:last-child { border-bottom: 1px solid rgba(247,245,242,.1); }
+    .service-trigger {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.8rem 0; color: var(--white); text-align: left;
+    }
+    .service-num { font-family: 'Bebas Neue', sans-serif; font-size: .9rem; color: var(--gold); margin-right: 1.5rem; }
+    .service-name-txt { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; }
+    .service-price-badge { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--gold); }
+    .service-body { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .4s ease; }
+    .service-item.open .service-body { max-height: 300px; padding: 0 0 1.8rem 2.5rem; }
 
-      /* ---------- ABOUT ---------- */
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: clamp(32px, 5vw, 72px);
-        align-items: center;
-      }
-      .about-photo {
-        position: relative;
-        aspect-ratio: 4/5;
-        overflow: hidden;
-        border: 1px solid var(--line);
-      }
-      .about-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 20% 55%;
-      }
-      .about-photo .tag {
-        position: absolute;
-        left: 18px;
-        bottom: 18px;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.75rem;
-        letter-spacing: 0.08em;
-        background: rgba(12, 10, 8, 0.88);
-        border: 1px solid rgba(239, 230, 213, 0.3);
-        padding: 8px 14px;
-        color: var(--brass-soft);
-      }
-      .about-copy p {
-        color: var(--stone);
-        margin-bottom: 18px;
-        font-size: 1rem;
-      }
-      .about-copy p:first-of-type {
-        color: var(--cream);
-        font-size: 1.15rem;
-      }
-      .facts {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-        margin-top: 36px;
-        border-top: 1px solid var(--line);
-        padding-top: 28px;
-      }
-      .facts div b {
-        display: block;
-        font-family: "Fraunces", serif;
-        font-size: 1.8rem;
-        color: var(--brass-soft);
-        font-weight: 500;
-      }
-      .facts div span {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.7rem;
-        letter-spacing: 0.05em;
-        color: var(--stone);
-        text-transform: uppercase;
-      }
+    /* REVIEWS */
+    #reviews { background: var(--gray); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 2rem; }
+    .review-card { background: var(--black); padding: 2.8rem 2.4rem; display: flex; flex-direction: column; gap: 1.2rem; }
+    .review-stars { color: var(--gold); }
+    .review-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; line-height: 1.6; color: rgba(247,245,242,.85); }
 
-      /* ---------- SERVICES ---------- */
-      .services {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1px;
-        background: var(--line);
-        border: 1px solid var(--line);
-      }
-      .service-card {
-        background: var(--ink);
-        position: relative;
-        padding: clamp(24px, 3.5vw, 36px);
-      }
-      .service-photo {
-        position: relative;
-        height: 200px;
-        margin: -clamp(24px, 3.5vw, 36px) -clamp(24px, 3.5vw, 36px)
-          clamp(24px, 3.5vw, 36px);
-        overflow: hidden;
-      }
-      .service-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: grayscale(0.3) contrast(1.05);
-      }
-      .service-card .num {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.8rem;
-        color: var(--brass);
-        font-weight: 500;
-      }
-      .service-card h3 {
-        font-size: 1.6rem;
-        margin: 10px 0 12px;
-      }
-      .service-card p {
-        color: var(--stone);
-        font-size: 0.95rem;
-      }
-      .service-card ul {
-        margin-top: 18px;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .service-card li {
-        font-size: 0.9rem;
-        color: var(--stone);
-        display: flex;
-        align-items: baseline;
-        gap: 10px;
-      }
-      .service-card li::before {
-        content: "—";
-        color: var(--brass);
-      }
-      .price-note {
-        margin-top: 20px;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.78rem;
-        color: var(--stone);
-      }
+    /* CONTACT */
+    #contact { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; }
+    .contact-detail { margin-bottom: 2.2rem; }
+    .contact-detail a { color: var(--white); text-decoration: none; }
+    .btn-gold {
+      display: inline-flex; align-items: center; background: var(--gold); color: var(--black);
+      padding: 1rem 2.2rem; font-size: .72rem; letter-spacing: .25em; text-transform: uppercase;
+      font-weight: 500; text-decoration: none; margin-bottom: 1rem;
+    }
+    .btn-outline {
+      display: inline-flex; align-items: center; border: 1px solid rgba(201,168,76,.4); color: var(--gold);
+      padding: 1rem 2.2rem; font-size: .72rem; letter-spacing: .25em; text-transform: uppercase; text-decoration: none;
+    }
+    .hours-row { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(247,245,242,.08); }
 
-      /* ---------- BANDS ---------- */
-      .band {
-        position: relative;
-        min-height: 40vh;
-        padding: 60px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        background-size: cover;
-        background-position: center;
-        overflow: hidden;
-      }
-      .band::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(9, 7, 5, 0.78);
-      }
-      .band-inner {
-        position: relative;
-        z-index: 1;
-        max-width: 620px;
-      }
-      .band .eyebrow {
-        color: var(--brass-soft);
-      }
-      .band h2 {
-        color: #f3ecd9;
-        font-size: clamp(1.8rem, 3.8vw, 2.5rem);
-        margin-top: 14px;
-      }
-      .band p {
-        color: #d1c7b7;
-        margin-top: 16px;
-        font-size: 1rem;
-      }
-      #band-atelier {
-        background-image: url("salon-interieur.webp");
-      }
-      #band-atmosphere {
-        background-image: url("https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1600&q=70");
-      }
+    /* IMPRESSUM / DATENSCHUTZ */
+    .legal-page {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: var(--black); overflow-y: auto; padding: 6rem 3rem 4rem;
+    }
+    .legal-page.active { display: block; }
+    .legal-close {
+      position: fixed; top: 1.5rem; right: 2rem; background: none; border: 1px solid rgba(247,245,242,.2);
+      color: var(--white); cursor: pointer; padding: .6rem 1.2rem; font-size: .7rem; text-transform: uppercase;
+    }
+    .legal-content { max-width: 720px; margin: 0 auto; }
+    .legal-content h1 { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; margin-bottom: 2.5rem; }
+    .legal-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--gold); margin: 2rem 0 .8rem; }
 
-      /* ---------- REVIEWS ---------- */
-      .rating-summary {
-        display: flex;
-        flex-wrap: wrap;
-        gap: clamp(20px, 4vw, 48px);
-        align-items: center;
-        margin-bottom: 40px;
-        padding-bottom: 32px;
-        border-bottom: 1px solid var(--line);
-      }
-      .rating-summary .big {
-        font-family: "Fraunces", serif;
-        font-size: clamp(3rem, 6vw, 4.2rem);
-        color: var(--brass-soft);
-        font-weight: 500;
-        line-height: 1;
-      }
-      .rating-summary .meta {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.8rem;
-        color: var(--stone);
-      }
-      .rating-summary .meta .stars {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 1rem;
-      }
-      .reviews-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1px;
-        background: var(--line);
-        border: 1px solid var(--line);
-      }
-      .review-card {
-        background: var(--ink);
-        padding: clamp(24px, 3vw, 32px);
-      }
-      .review-card .stars {
-        display: block;
-        margin-bottom: 14px;
-      }
-      .review-card p {
-        color: var(--cream);
-        font-size: 0.95rem;
-      }
-      .review-foot {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.75rem;
-        color: var(--stone);
-      }
+    /* FOOTER */
+    footer {
+      background: var(--gray); border-top: 1px solid rgba(247,245,242,.06);
+      padding: 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); text-decoration: none; cursor: pointer; }
+    .footer-links a:hover { color: var(--gold); }
 
-      /* ---------- HOURS & LOCATION ---------- */
-      .split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: clamp(32px, 5vw, 72px);
-        align-items: start;
-      }
-      .hours-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.9rem;
-      }
-      .hours-table tr {
-        border-bottom: 1px solid var(--line);
-      }
-      .hours-table tr:last-child {
-        border-bottom: 0;
-      }
-      .hours-table td {
-        padding: 14px 4px;
-      }
-      .hours-table td:first-child {
-        color: var(--stone);
-      }
-      .hours-table td:last-child {
-        text-align: right;
-        color: var(--cream);
-      }
-      .hours-table tr.closed td:last-child {
-        color: var(--brass-soft);
-      }
-      .hours-table tr.today {
-        background: rgba(198, 154, 78, 0.12);
-      }
-      .hours-table tr.today td {
-        font-weight: 500;
-        color: var(--brass-soft);
-      }
+    /* WHATSAPP FLOAT */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+      width: 56px; height: 56px; border-radius: 50%; background: #25d366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4); text-decoration: none;
+    }
+    .wa-float svg { width: 28px; height: 28px; fill: white; }
 
-      .location-card {
-        border: 1px solid var(--line);
-        padding: clamp(24px, 4vw, 40px);
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .location-card address {
-        font-style: normal;
-        font-size: clamp(1.1rem, 3vw, 1.3rem);
-        font-family: "Fraunces", serif;
-        color: var(--cream);
-        line-height: 1.4;
-      }
-      .map-frame {
-        position: relative;
-        aspect-ratio: 16/9;
-        border: 1px solid var(--line);
-        overflow: hidden;
-        background: var(--panel-2);
-      }
-      .map-frame iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        display: block;
-      }
+    @media (max-width: 860px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .section { padding: 5rem 1.5rem; }
+      #about, #contact { grid-template-columns: 1fr; gap: 3.5rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
 
-      /* ---------- CONTACT ---------- */
-      .contact-grid {
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: clamp(32px, 5vw, 72px);
-      }
-      .contact-info p {
-        color: var(--stone);
-        margin-bottom: 24px;
-      }
-      .contact-line {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 16px 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .contact-line:first-of-type {
-        border-top: 1px solid var(--line);
-      }
-      .contact-line .ico {
-        width: 36px;
-        height: 36px;
-        border: 1px solid var(--line-strong);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--brass);
-        flex-shrink: 0;
-      }
-      .contact-line .lbl {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.7rem;
-        letter-spacing: 0.05em;
-        color: var(--stone);
-        text-transform: uppercase;
-        display: block;
-      }
-      .contact-line .val {
-        font-size: 1rem;
-        color: var(--cream);
-      }
+<!-- WHATSAPP FLOAT BUTTON -->
+<a class="wa-float" href="https://wa.me/4983318336741" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
-      form.book {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .field {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .field label {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.75rem;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--cream);
-      }
-      .field input,
-      .field textarea,
-      .field select {
-        background: var(--panel);
-        border: 1px solid var(--line-strong);
-        border-radius: 2px;
-        color: var(--cream);
-        font-family: "Inter", sans-serif;
-        font-size: 1rem;
-        padding: 12px 14px;
-        transition: border-color 0.25s ease;
-      }
-      .field input:focus,
-      .field textarea:focus,
-      .field select:focus {
-        border-color: var(--brass);
-        outline: none;
-      }
-      .field select option {
-        background: var(--panel);
-        color: var(--cream);
-      }
-      .row2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-      }
+<!-- NAVIGATION -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">ELEGANCE<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">Über uns</a></li>
+    <li><a href="#services">Leistungen</a></li>
+    <li><a href="#reviews">Bewertungen</a></li>
+    <li><a href="#contact" class="nav-cta">Termin buchen</a></li>
+  </ul>
+</nav>
 
-      @media (max-width: 640px) {
-        .row2 {
-          grid-template-columns: 1fr;
-        }
-        .about-grid,
-        .split,
-        .contact-grid {
-          grid-template-columns: 1fr;
-        }
-        .facts {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 8px;
-        }
-        .facts div b {
-          font-size: 1.4rem;
-        }
-      }
+<!-- HERO BEREICH -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Memmingen · Seit über 3 Jahren Ihr Vertrauen</span>
+    <h1 class="hero-title">
+      <span class="line1">ELEGANCE</span>
+      <span class="line2">Barbershop</span>
+    </h1>
+    <p class="hero-sub">Traditionelles Barber-Handwerk in Memmingen</p>
+    <div class="hero-divider"></div>
+    <div>
+      <a href="tel:083318336741" class="btn-gold"><span>Jetzt Termin buchen</span></a>
+    </div>
+    <div class="hero-rating">
+      <a href="https://www.google.com/maps/search/Elegance+Barbershop+Memmingen" target="_blank">
+        <div class="score">4.7 ★★★★★</div>
+        <div class="count">141 Google-Bewertungen ↗</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-      .form-note {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.75rem;
-        color: var(--stone);
-      }
-      .submit-row {
-        margin-top: 8px;
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        flex-wrap: wrap;
-      }
-      button.btn-primary {
-        border: 1px solid var(--brass);
-        cursor: pointer;
-        font-family: "Inter", sans-serif;
-      }
-      .form-status {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.8rem;
-        color: var(--brass-soft);
-        display: none;
-      }
-      .form-status.show {
-        display: block;
-      }
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">ELEGANCE BARBERSHOP</span>
+    <span class="marquee-item">MEMMINGEN</span>
+    <span class="marquee-item">HAARSCHNITT</span>
+    <span class="marquee-item">BARTPFLEGE</span>
+    <span class="marquee-item">STIL & PRÄZISION</span>
+  </div>
+</div>
 
-      /* ---------- FOOTER ---------- */
-      footer {
-        border-top: 1px solid var(--line);
-        padding: clamp(48px, 6vw, 80px) 0 36px;
-      }
-      .footer-top {
-        display: grid;
-        grid-template-columns: 1.2fr 1fr 1fr;
-        gap: 40px;
-        padding-bottom: 40px;
-      }
-      .footer-brand {
-        font-family: "Fraunces", serif;
-        font-size: 1.4rem;
-      }
-      .footer-brand p {
-        font-family: "Inter", sans-serif;
-        font-size: 0.9rem;
-        color: var(--stone);
-        margin-top: 12px;
-      }
-      .footer-col h4 {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.75rem;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--stone);
-        margin-bottom: 16px;
-      }
-      .footer-col a,
-      .footer-col span {
-        display: block;
-        font-size: 0.9rem;
-        color: var(--cream);
-        margin-bottom: 10px;
-      }
-      .footer-col a:hover {
-        color: var(--brass-soft);
-      }
-      .fine {
-        margin-top: 32px;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 12px;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.75rem;
-        color: var(--stone);
-      }
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <a class="trust-btn" href="https://www.google.com/maps/search/Elegance+Barbershop+Memmingen" target="_blank">
+    Google Bewertungen ansehen
+  </a>
+  <a class="trust-btn" href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank">
+    Facebook
+  </a>
+  <a class="trust-btn" href="https://wa.me/4983318336741" target="_blank">
+    WhatsApp
+  </a>
+</div>
 
-      @media (max-width: 860px) {
-        .footer-top {
-          grid-template-columns: 1fr;
-          gap: 32px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="nav" id="siteNav">
-      <div class="nav-inner">
-        <a
-          href="#home"
-          class="brand"
-          aria-label="Elegance Barbershop Startseite"
-        >
-          <span class="mark" aria-hidden="true">EB</span>
-          Elegance Barbershop
-        </a>
-        <nav class="links" id="navLinks" aria-label="Hauptnavigation">
-          <a href="#ueber">Über uns</a>
-          <a href="#leistungen">Leistungen</a>
-          <a href="#bewertungen">Bewertungen</a>
-          <a href="#zeiten">Öffnungszeiten</a>
-          <a href="#kontakt">Kontakt</a>
-          <a href="#kontakt" class="nav-cta mobile-only-cta">Termin anfragen</a>
-        </nav>
-        <a href="#kontakt" class="nav-cta">Termin anfragen</a>
-        <button
-          class="burger"
-          id="burger"
-          aria-label="Menü öffnen"
-          aria-expanded="false"
-          aria-controls="navLinks"
-        >
-          ☰
-        </button>
+<!-- ÜBER UNS -->
+<section id="about" class="section">
+  <div class="about-left">
+    <span class="label">Über uns</span>
+    <h2 class="big-title">HANDWERK<br>MIT <em>Stil</em></h2>
+    <div style="height:1.5rem"></div>
+    <p class="body-text">Willkommen bei <strong>Elegance Barbershop</strong> – Ihrem Premium-Barbier im Herzen Memmingens. Wir verbinden klassische Handwerkskunst mit modernen Techniken.</p>
+    <p class="body-text" style="margin-top:1rem">Unsere Kunden vertrauen uns seit Jahren. Viele kommen seit über <strong>3 Jahren</strong> regelmäßig zu uns – dieses Vertrauen verpflichtet uns täglich aufs Neue.</p>
+    <div style="height:2rem"></div>
+    <a href="#contact" class="btn-gold">Termin vereinbaren →</a>
+  </div>
+  <div class="about-right">
+    <div class="about-img"></div>
+    <div class="about-num">
+      <span class="n">4.7</span>
+      <span style="font-size:.6rem; text-transform:uppercase;">Google Rating</span>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN & PREISE -->
+<section id="services" class="section">
+  <span class="label">Leistungen & Preise</span>
+  <h2 class="big-title" style="margin-bottom:3rem;">UNSERE SERVICES</h2>
+
+  <div class="services-list">
+    <div class="service-item">
+      <button class="service-trigger" onclick="toggleService(0)">
+        <div><span class="service-num">01</span><span class="service-name-txt">HERRENHAARSCHNITT</span></div>
+        <span class="service-price-badge">ab 20 €</span>
+      </button>
+      <div class="service-body">
+        <p class="body-text">Beratung · Waschen · Schneiden · Trocknen · Styling (ca. 30–45 Min.)</p>
       </div>
-    </header>
+    </div>
 
-    <main>
-      <section class="hero" id="home">
-        <div class="hero-media">
-          <img
-            src="salon-interieur.webp"
-            alt="Innenraum des Elegance Barbershop mit schwarzen Ledersesseln"
-          />
-        </div>
-        <div class="wrap hero-inner">
-          <div class="rating-badge">
-            <span class="stars" aria-hidden="true">★★★★★</span>
-            <b>4,7 / 5</b>
-            — 148 Google-Bewertungen
-          </div>
-          <h1>
-            Handwerk, das man
-            <em>sieht</em>
-            — und spürt.
-          </h1>
-          <p class="hero-sub">
-            Klassischer Herrenschnitt und Bartpflege in ruhiger Atmosphäre,
-            mitten in der Memminger Altstadt. Zeit für Sie statt
-            Fließband-Tempo.
-          </p>
-          <div class="hero-cta">
-            <a href="#kontakt" class="btn btn-primary">Termin anfragen</a>
-            <a href="#standort" class="btn btn-ghost">Anfahrt & Standort</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="ueber">
-        <div class="wrap about-grid">
-          <div class="about-photo reveal">
-            <img
-              src="salon-interieur.webp"
-              alt="Reihe schwarzer Barbierstühle mit beleuchteten Spiegelwänden"
-            />
-            <span class="tag">Hinter dem Salzstadel 1</span>
-          </div>
-          <div class="about-copy reveal">
-            <span class="eyebrow">Über den Salon</span>
-            <h2 style="margin-top: 14px">Ein Salon für Ruhe im Detail</h2>
-            <p style="margin-top: 22px">
-              Schwere Ledersessel, warmes Licht an jeder Station, ein eigener
-              Spiegel für jeden Gast. Der Elegance Barbershop ist so
-              eingerichtet, wie ein guter Schnitt sich anfühlen soll:
-              konzentriert, unaufgeregt, präzise.
-            </p>
-            <p>
-              Vom ersten Handtuch bis zum letzten Konturenschnitt arbeitet hier
-              ein Team, das sich Zeit nimmt — erkennbar an den vielen
-              wiederkehrenden Gästen aus Memmingen und Umgebung.
-            </p>
-            <div class="facts">
-              <div>
-                <b>4,7</b>
-                <span>Google</span>
-              </div>
-              <div>
-                <b>148</b>
-                <span>Stimmen</span>
-              </div>
-              <div>
-                <b>6</b>
-                <span>Tage/Woche</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr class="divider wrap" />
-
-      <section id="leistungen">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">Leistungen</span>
-            <h2>Zwei Handwerke, ein Anspruch</h2>
-          </div>
-          <div class="services reveal">
-            <article class="service-card">
-              <div class="service-photo">
-                <img
-                  src="https://images.unsplash.com/photo-1657105052497-f996284ffff8?auto=format&fit=crop&w=1200&q=70"
-                  alt="Barbier beim Haarschneiden mit Schere"
-                  loading="lazy"
-                />
-              </div>
-              <span class="num">01</span>
-              <h3>Haarstyling</h3>
-              <p>
-                Schnitt nach Ihren Vorstellungen — beraten, geschnitten,
-                gewaschen und final gestylt.
-              </p>
-              <ul>
-                <li>Beratung & Schnitt</li>
-                <li>Waschen & Styling</li>
-                <li>Klassisch oder modern</li>
-              </ul>
-            </article>
-            <article class="service-card">
-              <div class="service-photo">
-                <img
-                  src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=70"
-                  alt="Barbier bei der Rasur der Bartkonturen"
-                  loading="lazy"
-                />
-              </div>
-              <span class="num">02</span>
-              <h3>Bartpflege</h3>
-              <p>
-                Konturen, die zum Gesicht passen — sauber herausgearbeitet und
-                gepflegt.
-              </p>
-              <ul>
-                <li>Bart in Form bringen</li>
-                <li>Konturenschnitt</li>
-                <li>Pflege & Finish</li>
-              </ul>
-            </article>
-          </div>
-          <p class="price-note">
-            Preise richten sich nach Schnitt und Aufwand — gerne im Salon oder
-            telefonisch erfragen.
-          </p>
-        </div>
-      </section>
-
-      <div class="band" id="band-atelier">
-        <div class="band-inner">
-          <span class="eyebrow">Der Salon</span>
-          <h2>Sechs Stationen, ein Rhythmus</h2>
-          <p>
-            Eine Reihe schwarzer Ledersessel, jeder mit eigenem Spiegel und
-            warmem Licht — so sieht der Elegance Barbershop von innen aus.
-          </p>
-        </div>
+    <div class="service-item">
+      <button class="service-trigger" onclick="toggleService(1)">
+        <div><span class="service-num">02</span><span class="service-name-txt">BARTPFLEGE & RASUR</span></div>
+        <span class="service-price-badge">ab 12 €</span>
+      </button>
+      <div class="service-body">
+        <p class="body-text">Beratung · Trimmen · Formen · Konturierung · Rasur (ca. 20–30 Min.)</p>
       </div>
+    </div>
 
-      <hr class="divider wrap" />
-
-      <section id="bewertungen">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">Was Gäste sagen</span>
-            <h2>148 Bewertungen, ein Bild</h2>
-          </div>
-          <div class="rating-summary reveal">
-            <div class="big">4,7</div>
-            <div class="meta">
-              <span class="stars" aria-hidden="true">★★★★★</span>
-              148 Bewertungen auf Google · 137 auf Infobel
-            </div>
-          </div>
-          <div class="reviews-grid reveal">
-            <blockquote class="review-card">
-              <span class="stars" aria-hidden="true">★★★★★</span>
-              <p>
-                „Absolut empfehlenswert" — ein Stammgast lässt sich hier
-                regelmäßig die Haare schneiden und ist durchweg zufrieden.
-              </p>
-              <footer class="review-foot">
-                <span>Hüseyin A.</span>
-                <span>vor 2 Monaten</span>
-              </footer>
-            </blockquote>
-            <blockquote class="review-card">
-              <span class="stars" aria-hidden="true">★★★★★</span>
-              <p>
-                Nach dem Umzug nach Memmingen wurde hier auf Anhieb der passende
-                Friseur für Vater und Sohn gefunden.
-              </p>
-              <footer class="review-foot">
-                <span>Familie Velic</span>
-                <span>vor 4 Monaten</span>
-              </footer>
-            </blockquote>
-            <blockquote class="review-card">
-              <span class="stars" aria-hidden="true">★★★★★</span>
-              <p>
-                Sorgfältige Arbeit und ein freundlicher Empfang werden als Grund
-                für die Bestnote genannt.
-              </p>
-              <footer class="review-foot">
-                <span>Mohamad M.</span>
-                <span>vor 2 Monaten</span>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      <hr class="divider wrap" />
-
-      <section id="zeiten">
-        <div class="wrap split">
-          <div class="reveal">
-            <span class="eyebrow">Öffnungszeiten</span>
-            <h2 style="margin-top: 14px; margin-bottom: 28px">
-              Wann Sie uns finden
-            </h2>
-            <table class="hours-table" id="hoursTable">
-              <caption
-                class="sr-only"
-                style="
-                  position: absolute;
-                  width: 1px;
-                  height: 1px;
-                  overflow: hidden;
-                "
-              >
-                Reguläre Öffnungszeiten
-              </caption>
-              <tr data-day="1">
-                <td>Montag</td>
-                <td>09:00 – 19:00</td>
-              </tr>
-              <tr data-day="2">
-                <td>Dienstag</td>
-                <td>09:00 – 19:00</td>
-              </tr>
-              <tr data-day="3">
-                <td>Mittwoch</td>
-                <td>09:00 – 19:00</td>
-              </tr>
-              <tr data-day="4">
-                <td>Donnerstag</td>
-                <td>09:00 – 19:00</td>
-              </tr>
-              <tr data-day="5">
-                <td>Freitag</td>
-                <td>09:00 – 19:00</td>
-              </tr>
-              <tr data-day="6">
-                <td>Samstag</td>
-                <td>09:00 – 18:00</td>
-              </tr>
-              <tr data-day="0" class="closed">
-                <td>Sonntag</td>
-                <td>Geschlossen</td>
-              </tr>
-            </table>
-          </div>
-          <div class="reveal" id="standort">
-            <span class="eyebrow">Standort</span>
-            <h2 style="margin-top: 14px; margin-bottom: 28px">
-              Hinter dem Salzstadel
-            </h2>
-            <div class="location-card">
-              <div>
-                <address>
-                  Hinter dem Salzstadel 1
-                  <br />
-                  87700 Memmingen
-                </address>
-              </div>
-              <div class="map-frame">
-                <iframe
-                  src="https://maps.google.com/maps?q=Hinter%20dem%20Salzstadel%201%2C%2087700%20Memmingen&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  title="Standort Elegance Barbershop auf Google Maps"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-              <a
-                class="btn btn-primary"
-                href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Route in Google Maps öffnen
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="band" id="band-atmosphere">
-        <div class="band-inner">
-          <span class="eyebrow">Atmosphäre</span>
-          <h2>Ruhe, die man sofort spürt</h2>
-          <p>
-            Kein Fließband-Tempo, kein Lärm — nur konzentriertes Handwerk in
-            einem Salon, der Wert auf Details legt.
-          </p>
-        </div>
+    <div class="service-item">
+      <button class="service-trigger" onclick="toggleService(2)">
+        <div><span class="service-num">03</span><span class="service-name-txt">FADE & UNDERCUT</span></div>
+        <span class="service-price-badge">ab 22 €</span>
+      </button>
+      <div class="service-body">
+        <p class="body-text">Präzise Übergänge · Skin Fade · High/Mid/Low Fade · Styling (ca. 40–55 Min.)</p>
       </div>
+    </div>
 
-      <hr class="divider wrap" />
-
-      <section id="kontakt">
-        <div class="wrap contact-grid">
-          <div class="contact-info reveal">
-            <span class="eyebrow">Kontakt</span>
-            <h2 style="margin-top: 14px; margin-bottom: 20px">
-              Termin anfragen
-            </h2>
-            <p>
-              Schreiben Sie kurz, wann es passt — der Salon meldet sich zur
-              Bestätigung zurück. Für kurzfristige Termine gerne direkt anrufen.
-            </p>
-
-            <div class="contact-line">
-              <span class="ico" aria-hidden="true">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                  />
-                </svg>
-              </span>
-              <div>
-                <span class="lbl">Telefon</span>
-                <a href="tel:+498331000000" class="val">
-                  +49 (0) 8331 / 000000
-                </a>
-              </div>
-            </div>
-            <div class="contact-line">
-              <span class="ico" aria-hidden="true">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                >
-                  <path d="M4 4h16v16H4z" />
-                  <path d="m4 6 8 7 8-7" />
-                </svg>
-              </span>
-              <div>
-                <span class="lbl">E-Mail</span>
-                <a href="mailto:info@elegance-barbershop.de" class="val">
-                  info@elegance-barbershop.de
-                </a>
-              </div>
-            </div>
-            <div class="contact-line">
-              <span class="ico" aria-hidden="true">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                >
-                  <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z" />
-                  <circle cx="12" cy="9" r="2.4" />
-                </svg>
-              </span>
-              <div>
-                <span class="lbl">Adresse</span>
-                <span class="val">
-                  Hinter dem Salzstadel 1, 87700 Memmingen
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <form
-            class="book reveal"
-            id="bookForm"
-            aria-label="Terminanfrage-Formular"
-          >
-            <div class="row2">
-              <div class="field">
-                <label for="name">Name *</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  autocomplete="name"
-                />
-              </div>
-              <div class="field">
-                <label for="phone">Telefon oder E-Mail *</label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="text"
-                  required
-                  autocomplete="email"
-                />
-              </div>
-            </div>
-            <div class="row2">
-              <div class="field">
-                <label for="service">Gewünschte Leistung</label>
-                <select id="service" name="service">
-                  <option>Haarstyling</option>
-                  <option>Bartpflege</option>
-                  <option>Haarstyling und Bart</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="wish">Wunschtermin</label>
-                <input
-                  id="wish"
-                  name="wish"
-                  type="text"
-                  placeholder="z. B. Donnerstag nachmittags"
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label for="message">Nachricht</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                placeholder="Kurze Nachricht an den Salon …"
-              ></textarea>
-            </div>
-            <div class="submit-row">
-              <button type="submit" class="btn btn-primary">
-                Anfrage senden
-              </button>
-              <span class="form-status" id="formStatus" role="status">
-                Danke — die Anfrage ist unterwegs.
-              </span>
-            </div>
-            <p class="form-note">
-              Mit dem Absenden werden die Angaben zur Bearbeitung der Anfrage
-              verwendet.
-            </p>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="wrap">
-        <div class="footer-top">
-          <div class="footer-brand">
-            Elegance Barbershop
-            <p>
-              Herrenfriseur für Haarschnitt und Bartpflege. Hinter dem
-              Salzstadel 1, 87700 Memmingen.
-            </p>
-          </div>
-          <div class="footer-col">
-            <h4>Navigation</h4>
-            <a href="#ueber">Über uns</a>
-            <a href="#leistungen">Leistungen</a>
-            <a href="#bewertungen">Bewertungen</a>
-            <a href="#zeiten">Öffnungszeiten</a>
-            <a href="#kontakt">Kontakt</a>
-          </div>
-          <div class="footer-col">
-            <h4>Kontakt</h4>
-            <a href="tel:+498331000000">+49 (0) 8331 / 000000</a>
-            <a href="mailto:info@elegance-barbershop.de">
-              info@elegance-barbershop.de
-            </a>
-            <a href="#standort">Anfahrt planen</a>
-          </div>
-        </div>
-
-        <div class="fine">
-          <span>
-            ©
-            <span id="year"></span>
-            Elegance Barbershop, Memmingen
-          </span>
-        </div>
+    <div class="service-item">
+      <button class="service-trigger" onclick="toggleService(3)">
+        <div><span class="service-num">04</span><span class="service-name-txt">KOMPLETT-PAKET</span></div>
+        <span class="service-price-badge">ab 30 €</span>
+      </button>
+      <div class="service-body">
+        <p class="body-text">Schnitt + Bart + Styling – alles in einem Termin (ca. 60–75 Min.)</p>
       </div>
-    </footer>
+    </div>
+  </div>
+</section>
 
-    <script>
-      const nav = document.getElementById("siteNav");
-      window.addEventListener(
-        "scroll",
-        () => {
-          nav.classList.toggle("scrolled", window.scrollY > 12);
-        },
-        { passive: true }
-      );
+<!-- BEWERTUNGEN -->
+<section id="reviews" class="section">
+  <span class="label">Kundenstimmen</span>
+  <h2 class="big-title">WAS UNSERE KUNDEN SAGEN</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-quote">„Bester Friseur – vor allem das beste Personal. Schneide seit über 3 Jahren dort.“</p>
+      <span style="font-size:.65rem; color:var(--muted)">Simon Bilici · GOOGLE</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-quote">„Sehr gut. Bin zufriedener Stammkunde.“</p>
+      <span style="font-size:.65rem; color:var(--muted)">Vladyslav Rudyi · GOOGLE</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-quote">„Professionell, freundlich und immer präzise. Klare Empfehlung für jeden Mann in Memmingen.“</p>
+      <span style="font-size:.65rem; color:var(--muted)">Stammkunde · GOOGLE</span>
+    </div>
+  </div>
+</section>
 
-      const burger = document.getElementById("burger");
-      const navLinks = document.getElementById("navLinks");
+<!-- KONTAKT & ÖFFNUNGSZEITEN -->
+<section id="contact" class="section">
+  <div>
+    <span class="label">Besuchen Sie uns</span>
+    <h2 class="big-title" style="margin-bottom:2rem;">KONTAKT & LAGE</h2>
+    <div class="contact-detail">
+      <span class="label">Adresse</span>
+      <p class="body-text">Hinter dem Salzstadel 1<br>87700 Memmingen</p>
+    </div>
+    <div class="contact-detail">
+      <span class="label">Telefon</span>
+      <p class="body-text"><a href="tel:083318336741">08331 8336741</a></p>
+    </div>
+    <div class="contact-detail">
+      <span class="label">Social Media</span>
+      <p class="body-text"><a href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank">Facebook – Elegance Barbershop ↗</a></p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+      <a href="https://wa.me/4983318336741" target="_blank" class="btn-gold">WhatsApp schreiben →</a>
+      <a href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen" target="_blank" class="btn-outline">In Google Maps öffnen →</a>
+    </div>
+  </div>
+  <div>
+    <span class="label">Öffnungszeiten</span>
+    <div class="hours-row"><span>Montag</span><span>09:00 – 18:30</span></div>
+    <div class="hours-row"><span>Dienstag</span><span>09:00 – 18:30</span></div>
+    <div class="hours-row"><span>Mittwoch</span><span>09:00 – 18:30</span></div>
+    <div class="hours-row"><span>Donnerstag</span><span>09:00 – 18:30</span></div>
+    <div class="hours-row"><span>Freitag</span><span>09:00 – 18:30</span></div>
+    <div class="hours-row"><span>Samstag</span><span>09:00 – 16:00</span></div>
+    <div class="hours-row" style="opacity:.4"><span>Sonntag</span><span>Geschlossen</span></div>
+  </div>
+</section>
 
-      burger.addEventListener("click", () => {
-        const open = navLinks.classList.toggle("open");
-        burger.setAttribute("aria-expanded", open ? "true" : "false");
-        burger.textContent = open ? "✕" : "☰";
-      });
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">ELEGANCE<span>.</span></span>
+  <span style="font-size:.65rem; color:var(--muted)">© Elegance Barbershop Memmingen</span>
+  <div class="footer-links">
+    <a href="#hero">Start</a>
+    <a href="#services">Leistungen</a>
+    <a href="#reviews">Bewertungen</a>
+    <a href="#contact">Kontakt</a>
+    <a onclick="showLegal('impressum')">Impressum</a>
+    <a onclick="showLegal('datenschutz')">Datenschutz</a>
+  </div>
+</footer>
 
-      navLinks.querySelectorAll("a").forEach((a) =>
-        a.addEventListener("click", () => {
-          navLinks.classList.remove("open");
-          burger.setAttribute("aria-expanded", "false");
-          burger.textContent = "☰";
-        })
-      );
+<!-- IMPRESSUM MODAL -->
+<div class="legal-page" id="impressum">
+  <button class="legal-close" onclick="hideLegal('impressum')">✕ Schließen</button>
+  <div class="legal-content">
+    <h1>IMPRESSUM</h1>
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <p>Elegance Barbershop<br>Hinter dem Salzstadel 1<br>87700 Memmingen</p>
+    <h2>Kontakt</h2>
+    <p>Telefon: 08331 8336741<br>E-Mail: info@elegance-memmingen.de</p>
+    <h2>Haftungsausschluss</h2>
+    <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+  </div>
+</div>
 
-      const revealEls = document.querySelectorAll(".reveal");
-      if ("IntersectionObserver" in window) {
-        const io = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (e.isIntersecting) {
-                e.target.classList.add("in");
-                io.unobserve(e.target);
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-        revealEls.forEach((el) => io.observe(el));
-      } else {
-        revealEls.forEach((el) => el.classList.add("in"));
-      }
+<!-- DATENSCHUTZ MODAL -->
+<div class="legal-page" id="datenschutz">
+  <button class="legal-close" onclick="hideLegal('datenschutz')">✕ Schließen</button>
+  <div class="legal-content">
+    <h1>DATENSCHUTZ</h1>
+    <h2>1. Datenschutz auf einen Blick</h2>
+    <p>Diese Website erhebt keine personenbezogenen Daten. Es werden keine Cookies gesetzt und keine Tracking-Tools verwendet.</p>
+    <h2>2. Verantwortliche Stelle</h2>
+    <p>Elegance Barbershop<br>Hinter dem Salzstadel 1<br>87700 Memmingen<br>Telefon: 08331 8336741</p>
+  </div>
+</div>
 
-      const today = new Date().getDay();
-      const row = document.querySelector(
-        '#hoursTable tr[data-day="' + today + '"]'
-      );
-      if (row) row.classList.add("today");
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
-      document.getElementById("year").textContent = new Date().getFullYear();
+  function toggleService(index) {
+    document.querySelectorAll('.service-item').forEach((item, i) => {
+      item.classList.toggle('open', i === index && !item.classList.contains('open'));
+      if (i !== index) item.classList.remove('open');
+    });
+  }
 
-      const form = document.getElementById("bookForm");
-      const status = document.getElementById("formStatus");
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        status.classList.add("show");
-        form.reset();
-        setTimeout(() => status.classList.remove("show"), 5000);
-      });
-    </script>
-  </body>
+  function showLegal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function hideLegal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+</script>
+</body>
 </html>
