@@ -26,35 +26,23 @@
       overflow-x: hidden;
     }
 
-    /* NAV & LOGO STYLING FIX */
+    /* NAV & LOGO STYLING */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 2rem; background: rgba(10,10,10,.85); backdrop-filter: blur(8px);
     }
-    
     .nav-logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      text-decoration: none;
-      z-index: 210;
+      display: flex; align-items: center; gap: 0.8rem;
+      text-decoration: none; z-index: 210;
     }
     .brand-logo {
-      height: 45px;
-      width: 45px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 1.5px solid var(--gold);
-      padding: 2px;
-      background: var(--black);
-      transition: transform 0.3s ease;
+      height: 45px; width: 45px; object-fit: cover;
+      border-radius: 50%; border: 1.5px solid var(--gold); padding: 2px;
+      background: var(--black); transition: transform 0.3s ease;
     }
     .nav-logo-wrap:hover .brand-logo { transform: scale(1.08); }
-    .nav-logo-text {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem; letter-spacing: .12em; color: var(--white);
-    }
+    .nav-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: .12em; color: var(--white); }
     .nav-logo-text span { color: var(--gold); }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
@@ -72,8 +60,7 @@
     #hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
-      overflow: hidden; text-align: center;
-      padding-top: 5rem;
+      overflow: hidden; text-align: center; padding-top: 5rem;
     }
     .hero-bg {
       position: absolute; inset: 0;
@@ -92,33 +79,16 @@
     .hero-rating .score { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--gold); line-height: 1; }
     .hero-rating .count { font-size: .62rem; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; margin-top: .2rem; }
 
-    /* ENDLOS-LOOP MARQUEE FIX */
+    /* ENDLOS-LOOP MARQUEE */
     .marquee-wrap {
-      position: relative;
-      z-index: 10;
-      background: var(--gold);
-      color: var(--black);
-      padding: 1rem 0;
-      overflow: hidden;
-      display: flex;
-      width: 100%;
+      position: relative; z-index: 10; background: var(--gold);
+      color: var(--black); padding: 1rem 0; overflow: hidden; display: flex; width: 100%;
     }
     .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 20s linear infinite;
-      white-space: nowrap;
+      display: flex; width: max-content; animation: marquee 20s linear infinite; white-space: nowrap;
     }
-    .marquee-content {
-      display: flex;
-      align-items: center;
-    }
-    .marquee-item {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: .25em;
-      padding: 0 2rem;
-    }
+    .marquee-content { display: flex; align-items: center; }
+    .marquee-item { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: .25em; padding: 0 2rem; }
     @keyframes marquee {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
@@ -129,6 +99,22 @@
     .label { font-size: .65rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
     .big-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6.5rem); line-height: .95; letter-spacing: .03em; }
     .body-text { font-size: .88rem; line-height: 1.9; color: rgba(247,245,242,.65); }
+
+    /* TRUST BAR & ICONS */
+    .trust-bar {
+      background: var(--black); border-top: 1px solid rgba(201,168,76,.15);
+      padding: 2.5rem 3rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; justify-content: center;
+    }
+    .icon-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .8rem;
+      padding: .8rem 1.6rem; border: 1px solid rgba(201,168,76,.4); border-radius: 4px;
+      font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none; transition: all .25s ease;
+      background: transparent;
+    }
+    .icon-btn svg { width: 20px; height: 20px; fill: currentColor; transition: transform .25s ease; }
+    .icon-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+    .icon-btn:hover svg { transform: scale(1.1); }
 
     /* ABOUT */
     #about { background: var(--gray); display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
@@ -141,19 +127,6 @@
     .about-right { position: relative; }
     .about-num { position: absolute; bottom: -2rem; left: -2rem; background: var(--gold); color: var(--black); padding: 1.5rem 2rem; }
     .about-num .n { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; line-height: 1; display: block; }
-
-    /* TRUST BAR */
-    .trust-bar {
-      background: var(--black); border-top: 1px solid rgba(201,168,76,.15);
-      padding: 2.5rem 3rem; display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; justify-content: center;
-    }
-    .trust-btn {
-      display: inline-flex; align-items: center; gap: .7rem;
-      padding: .85rem 1.8rem; border: 1px solid rgba(201,168,76,.4);
-      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--gold); text-decoration: none; transition: background .25s, color .25s;
-    }
-    .trust-btn:hover { background: var(--gold); color: var(--black); }
 
     /* SERVICES */
     #services { background: var(--black); }
@@ -178,20 +151,26 @@
     .review-stars { color: var(--gold); }
     .review-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; line-height: 1.6; color: rgba(247,245,242,.85); }
 
-    /* CONTACT */
-    #contact { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; }
-    .contact-detail { margin-bottom: 2.2rem; }
+    /* CONTACT & GOOGLE MAPS */
+    #contact { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .contact-detail { margin-bottom: 2rem; }
     .contact-detail a { color: var(--white); text-decoration: none; }
+    .social-icons-row { display: flex; gap: 1rem; margin-top: 1rem; }
     .btn-gold {
-      display: inline-flex; align-items: center; background: var(--gold); color: var(--black);
+      display: inline-flex; align-items: center; justify-content: center; background: var(--gold); color: var(--black);
       padding: 1rem 2.2rem; font-size: .72rem; letter-spacing: .25em; text-transform: uppercase;
-      font-weight: 500; text-decoration: none; margin-bottom: 1rem;
+      font-weight: 500; text-decoration: none; gap: .6rem; border: none; cursor: pointer;
     }
-    .btn-outline {
-      display: inline-flex; align-items: center; border: 1px solid rgba(201,168,76,.4); color: var(--gold);
-      padding: 1rem 2.2rem; font-size: .72rem; letter-spacing: .25em; text-transform: uppercase; text-decoration: none;
+    .btn-gold svg { width: 18px; height: 18px; fill: var(--black); }
+    .hours-row { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid rgba(247,245,242,.08); }
+
+    .map-container {
+      width: 100%; height: 320px; border: 1px solid rgba(201,168,76,.3);
+      border-radius: 4px; overflow: hidden; margin-top: 2rem; filter: grayscale(90%) invert(92%) contrast(83%);
+      transition: filter 0.3s ease;
     }
-    .hours-row { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(247,245,242,.08); }
+    .map-container:hover { filter: none; }
+    .map-container iframe { width: 100%; height: 100%; border: 0; }
 
     /* IMPRESSUM / DATENSCHUTZ */
     .legal-page {
@@ -243,7 +222,7 @@
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- NAVIGATION MIT SICHTBAREM LOGO -->
+<!-- NAVIGATION -->
 <nav id="nav">
   <a class="nav-logo-wrap" href="#hero">
     <img src="LogoElegance.png" onerror="this.onerror=null; this.src='LogoElegance.jpg';" alt="Logo" class="brand-logo">
@@ -257,7 +236,7 @@
   </ul>
 </nav>
 
-<!-- HERO BEREICH -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -280,46 +259,38 @@
   </div>
 </section>
 
-<!-- NAHTLOSER ENDLOS-LOOP BANNER -->
+<!-- ENDLOS BANNER -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <div class="marquee-content">
-      <span class="marquee-item">ELEGANCE BARBERSHOP</span>
-      <span class="marquee-item">✦</span>
-      <span class="marquee-item">MEMMINGEN</span>
-      <span class="marquee-item">✦</span>
-      <span class="marquee-item">HAARSCHNITT</span>
-      <span class="marquee-item">✦</span>
-      <span class="marquee-item">BARTPFLEGE</span>
-      <span class="marquee-item">✦</span>
-      <span class="marquee-item">STIL & PRÄZISION</span>
-      <span class="marquee-item">✦</span>
+      <span class="marquee-item">ELEGANCE BARBERSHOP</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">MEMMINGEN</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">HAARSCHNITT</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">BARTPFLEGE</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">STIL & PRÄZISION</span><span class="marquee-item">✦</span>
     </div>
-    <!-- Duplizierter Inhalt für den unendlichen Loop -->
     <div class="marquee-content">
-      <span class="marquee-item">ELEGANCE BARBERSHOP</span>
-      <span class="marquee-item">✦</span>
-      <span class="marquee-item">MEMMINGEN</span>
-      <span class="marquee-item">✦</span>
-      <span class="marquee-item">HAARSCHNITT</span>
-      <span class="marquee-item">✦</span>
-      <span class="marquee-item">BARTPFLEGE</span>
-      <span class="marquee-item">✦</span>
-      <span class="marquee-item">STIL & PRÄZISION</span>
-      <span class="marquee-item">✦</span>
+      <span class="marquee-item">ELEGANCE BARBERSHOP</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">MEMMINGEN</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">HAARSCHNITT</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">BARTPFLEGE</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">STIL & PRÄZISION</span><span class="marquee-item">✦</span>
     </div>
   </div>
 </div>
 
-<!-- TRUST BAR -->
+<!-- TRUST BAR MIT ICONS -->
 <div class="trust-bar">
-  <a class="trust-btn" href="https://www.google.com/maps/search/Elegance+Barbershop+Memmingen" target="_blank">
-    Google Bewertungen ansehen
+  <a class="icon-btn" href="https://www.google.com/maps/search/Elegance+Barbershop+Memmingen" target="_blank" aria-label="Google Bewertungen">
+    <svg viewBox="0 0 24 24"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.761H12.545z"/></svg>
+    Google Reviews
   </a>
-  <a class="trust-btn" href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank">
+  <a class="icon-btn" href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank" aria-label="Facebook">
+    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     Facebook
   </a>
-  <a class="trust-btn" href="https://wa.me/4983318336741" target="_blank">
+  <a class="icon-btn" href="https://wa.me/4983318336741" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     WhatsApp
   </a>
 </div>
@@ -344,50 +315,38 @@
   </div>
 </section>
 
-<!-- LEISTUNGEN & PREISE -->
+<!-- LEISTUNGEN -->
 <section id="services" class="section">
   <span class="label">Leistungen & Preise</span>
   <h2 class="big-title" style="margin-bottom:3rem;">UNSERE SERVICES</h2>
-
   <div class="services-list">
     <div class="service-item">
       <button class="service-trigger" onclick="toggleService(0)">
         <div><span class="service-num">01</span><span class="service-name-txt">HERRENHAARSCHNITT</span></div>
         <span class="service-price-badge">ab 20 €</span>
       </button>
-      <div class="service-body">
-        <p class="body-text">Beratung · Waschen · Schneiden · Trocknen · Styling (ca. 30–45 Min.)</p>
-      </div>
+      <div class="service-body"><p class="body-text">Beratung · Waschen · Schneiden · Trocknen · Styling (ca. 30–45 Min.)</p></div>
     </div>
-
     <div class="service-item">
       <button class="service-trigger" onclick="toggleService(1)">
         <div><span class="service-num">02</span><span class="service-name-txt">BARTPFLEGE & RASUR</span></div>
         <span class="service-price-badge">ab 12 €</span>
       </button>
-      <div class="service-body">
-        <p class="body-text">Beratung · Trimmen · Formen · Konturierung · Rasur (ca. 20–30 Min.)</p>
-      </div>
+      <div class="service-body"><p class="body-text">Beratung · Trimmen · Formen · Konturierung · Rasur (ca. 20–30 Min.)</p></div>
     </div>
-
     <div class="service-item">
       <button class="service-trigger" onclick="toggleService(2)">
         <div><span class="service-num">03</span><span class="service-name-txt">FADE & UNDERCUT</span></div>
         <span class="service-price-badge">ab 22 €</span>
       </button>
-      <div class="service-body">
-        <p class="body-text">Präzise Übergänge · Skin Fade · High/Mid/Low Fade · Styling (ca. 40–55 Min.)</p>
-      </div>
+      <div class="service-body"><p class="body-text">Präzise Übergänge · Skin Fade · High/Mid/Low Fade · Styling (ca. 40–55 Min.)</p></div>
     </div>
-
     <div class="service-item">
       <button class="service-trigger" onclick="toggleService(3)">
         <div><span class="service-num">04</span><span class="service-name-txt">KOMPLETT-PAKET</span></div>
         <span class="service-price-badge">ab 30 €</span>
       </button>
-      <div class="service-body">
-        <p class="body-text">Schnitt + Bart + Styling – alles in einem Termin (ca. 60–75 Min.)</p>
-      </div>
+      <div class="service-body"><p class="body-text">Schnitt + Bart + Styling – alles in einem Termin (ca. 60–75 Min.)</p></div>
     </div>
   </div>
 </section>
@@ -415,28 +374,43 @@
   </div>
 </section>
 
-<!-- KONTAKT & ÖFFNUNGSZEITEN -->
+<!-- KONTAKT & INTERAKTIVE MAPS -->
 <section id="contact" class="section">
   <div>
     <span class="label">Besuchen Sie uns</span>
     <h2 class="big-title" style="margin-bottom:2rem;">KONTAKT & LAGE</h2>
+    
     <div class="contact-detail">
       <span class="label">Adresse</span>
       <p class="body-text">Hinter dem Salzstadel 1<br>87700 Memmingen</p>
     </div>
+    
     <div class="contact-detail">
       <span class="label">Telefon</span>
       <p class="body-text"><a href="tel:083318336741">08331 8336741</a></p>
     </div>
+
     <div class="contact-detail">
-      <span class="label">Social Media</span>
-      <p class="body-text"><a href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank">Facebook – Elegance Barbershop ↗</a></p>
+      <span class="label">Social & Connect</span>
+      <div class="social-icons-row">
+        <a class="icon-btn" href="https://wa.me/4983318336741" target="_blank" title="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank" title="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.google.com/maps/search/Elegance+Barbershop+Memmingen" target="_blank" title="Google Map">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </a>
+      </div>
     </div>
-    <div style="display:flex; flex-direction:column; gap:1rem;">
-      <a href="https://wa.me/4983318336741" target="_blank" class="btn-gold">WhatsApp schreiben →</a>
-      <a href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen" target="_blank" class="btn-outline">In Google Maps öffnen →</a>
+
+    <!-- INTERAKTIVE GOOGLE MAPS -->
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.651717466099!2d10.180299676882654!3d47.98181637122606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479b94098ffb4e2b%3A0x8bf2cb85bc885747!2sHinter%20dem%20Salzstadel%201%2C%2087700%20Memmingen!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
+
   <div>
     <span class="label">Öffnungszeiten</span>
     <div class="hours-row"><span>Montag</span><span>09:00 – 18:30</span></div>
@@ -446,6 +420,12 @@
     <div class="hours-row"><span>Freitag</span><span>09:00 – 18:30</span></div>
     <div class="hours-row"><span>Samstag</span><span>09:00 – 16:00</span></div>
     <div class="hours-row" style="opacity:.4"><span>Sonntag</span><span>Geschlossen</span></div>
+    <div style="margin-top:2.5rem;">
+      <a href="https://wa.me/4983318336741" target="_blank" class="btn-gold">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Nachricht senden
+      </a>
+    </div>
   </div>
 </section>
 
