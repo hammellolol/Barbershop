@@ -8,6 +8,39 @@
   <meta name="description" content="Elegance Barbershop in Memmingen – Premium Herrenfriseur für Haarschnitt, Bartpflege, Fade Cuts und mehr. 4,7 Sterne auf Google. Jetzt Termin vereinbaren!"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
+    .nav-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  padding: 2px;
+  background: rgba(10, 10, 10, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.nav-logo-wrap:hover .brand-logo {
+  transform: scale(1.05);
+}
+
+.nav-logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: .12em;
+  color: var(--white);
+}
+
+.nav-logo-text span {
+  color: var(--gold);
+}
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --black: #0a0a0a;
