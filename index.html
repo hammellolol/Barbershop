@@ -69,23 +69,34 @@
       padding: .55rem 1.4rem; font-weight: 500 !important;
     }
 
-    /* HERO */
+    /* HERO MIT SALON HINTERGRUND */
     #hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden; text-align: center; padding-top: 5rem;
     }
     .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 90% 50% at 50% 110%, rgba(201,168,76,.5), rgba(201,168,76,.15) 45%, transparent 70%),
-        linear-gradient(160deg, #0e0c09 0%, #1c1a14 50%, #0e0c09 100%);
+      position: absolute; inset: -20px; /* Leicht vergrößert, um unscharfe Ränder zu vermeiden */
+      background-image: url('EleganceSalon.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* Parallax Effect: Bild scrollt langsamer mit */
+      filter: blur(5px) brightness(0.35); /* Unscharf & Dunkel */
+      transform: scale(1.05);
+      z-index: 1;
     }
-    .hero-content { position: relative; z-index: 2; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; }
+    /* Dunkler Verlauf nach unten, damit das Bild sanft in die Seite übergeht */
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 2;
+      background: 
+        radial-gradient(ellipse 90% 50% at 50% 100%, rgba(10,10,10,0.8), rgba(10,10,10,0.3)),
+        linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.95) 90%, var(--black) 100%);
+    }
+    .hero-content { position: relative; z-index: 3; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; }
     .hero-tag { font-size: .62rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; }
     .hero-title .line1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4.5rem, 16vw, 12rem); line-height: .9; letter-spacing: .04em; display: block; color: var(--white); }
     .hero-title .line2 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(3.5rem, 13vw, 9.5rem); color: var(--gold); display: block; line-height: 1; }
-    .hero-sub { font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: rgba(247,245,242,.55); margin-top: 1.8rem; }
+    .hero-sub { font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: rgba(247,245,242,.75); margin-top: 1.8rem; }
     .hero-divider { width: 36px; height: 1px; background: var(--gold); margin: 1.8rem auto; }
     .hero-rating { margin-top: 2.5rem; margin-bottom: 2rem; }
     .hero-rating a { color: inherit; text-decoration: none; }
@@ -108,13 +119,14 @@
     }
 
     /* SECTION BASE */
-    .section { padding: 8rem 3rem; }
+    .section { padding: 8rem 3rem; position: relative; z-index: 10; }
     .label { font-size: .65rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
     .big-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6.5rem); line-height: .95; letter-spacing: .03em; }
     .body-text { font-size: .88rem; line-height: 1.9; color: rgba(247,245,242,.65); }
 
     /* TRUST BAR */
     .trust-bar {
+      position: relative; z-index: 10;
       background: var(--black); border-top: 1px solid rgba(201,168,76,.15);
       padding: 2.5rem 3rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; justify-content: center;
     }
@@ -134,7 +146,7 @@
     .about-left .big-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); }
     .about-img {
       width: 100%; aspect-ratio: 3/4;
-      background: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1200&q=95') center/cover no-repeat;
+      background: url('EleganceSalon.webp') center/cover no-repeat;
       position: relative;
     }
     .about-right { position: relative; }
@@ -165,7 +177,7 @@
     .review-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; line-height: 1.6; color: rgba(247,245,242,.85); }
 
     /* CONTACT SECTION */
-    #contact { background: var(--black); padding-bottom: 4rem; }
+    #contact { background: var(--black); padding-bottom: 4rem; position: relative; z-index: 10; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 1200px; margin: 0 auto; }
     .contact-detail { margin-bottom: 2rem; }
     .contact-detail a { color: var(--white); text-decoration: none; }
@@ -190,6 +202,7 @@
     footer {
       background: var(--gray); border-top: 1px solid rgba(247,245,242,.06);
       padding: 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+      position: relative; z-index: 10;
     }
     .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; }
     .footer-links { display: flex; gap: 2rem; }
@@ -215,6 +228,7 @@
       #about, .contact-grid { grid-template-columns: 1fr; gap: 3.5rem; }
       .reviews-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; align-items: flex-start; }
+      .hero-bg { background-attachment: scroll; } /* Mobile Performance */
     }
   </style>
 </head>
@@ -225,14 +239,13 @@
   <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
 </a>
 
-<!-- NAVIGATION MIT DYNAMISCHER STATUSANZEIGE -->
+<!-- NAVIGATION -->
 <nav id="nav">
   <a class="nav-logo-wrap" href="#hero">
     <img src="LogoElegance.png" onerror="this.onerror=null; this.src='LogoElegance.jpg';" alt="Logo" class="brand-logo">
     <span class="nav-logo-text">ELEGANCE<span>.</span></span>
   </a>
 
-  <!-- Live Status Badge -->
   <div class="nav-center-status">
     <span id="statusDot" class="status-dot"></span>
     <span id="statusText">Prüfe Status...</span>
@@ -246,9 +259,10 @@
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- HERO SEKTION -->
 <section id="hero">
   <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <span class="hero-tag">Memmingen · Seit über 3 Jahren Ihr Vertrauen</span>
     <h1 class="hero-title">
@@ -427,7 +441,7 @@
     </div>
   </div>
 
-  <!-- INTERAKTIVE GOOGLE MAPS IN VOLLER BREITE -->
+  <!-- GOOGLE MAPS IN VOLLER BREITE -->
   <div class="map-full-width">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.651717466099!2d10.180299676882654!3d47.98181637122606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479b94098ffb4e2b%3A0x8bf2cb85bc885747!2sHinter%20dem%20Salzstadel%201%2C%2087700%20Memmingen!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
@@ -453,10 +467,10 @@
     });
   }
 
-  // DYNAMISCHE STATUS-BERECHNUNG (JETZT GEÖFFNET / GESCHLOSSEN)
+  // DYNAMISCHE STATUS-BERECHNUNG
   function updateBusinessStatus() {
     const now = new Date();
-    const day = now.getDay(); // 0 = So, 1 = Mo, ..., 6 = Sa
+    const day = now.getDay();
     const hour = now.getHours();
     const minute = now.getMinutes();
     const currentTime = hour * 60 + minute;
@@ -466,12 +480,9 @@
 
     let isOpen = false;
 
-    // Mo - Fr: 09:00 - 18:30 (540 Min - 1110 Min)
     if (day >= 1 && day <= 5) {
       if (currentTime >= 540 && currentTime < 1110) isOpen = true;
-    }
-    // Sa: 09:00 - 16:00 (540 Min - 960 Min)
-    else if (day === 6) {
+    } else if (day === 6) {
       if (currentTime >= 540 && currentTime < 960) isOpen = true;
     }
 
@@ -485,7 +496,7 @@
   }
 
   updateBusinessStatus();
-  setInterval(updateBusinessStatus, 60000); // Jede Minute aktualisieren
+  setInterval(updateBusinessStatus, 60000);
 </script>
 </body>
 </html>
