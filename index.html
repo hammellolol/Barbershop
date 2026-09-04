@@ -1,207 +1,516 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELEGANCE Barbershop Memmingen</title>
-  <link href="LogoElegance.png" rel="icon" type="image/x-icon">
-  <link rel="stylesheet" href="style.css"> </head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Elegance Barbershop Memmingen | Herrenfriseur, Bartpflege & Fade Cuts</title>
+  <meta name="description" content="Elegance Barbershop in Memmingen – Premium Herrenfriseur für Haarschnitt, Bartpflege, Fade Cuts und mehr. 4,7 Sterne auf Google."/>
+  <link rel="icon" type="image/x-icon" href="LogoElegance.png">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --black: #0a0a0a;
+      --white: #f7f5f2;
+      --gold: #c9a84c;
+      --gray: #1a1a1a;
+      --mid: #2a2a2a;
+      --muted: #888;
+    }
+
+    /* GLOBAL MOBILE FIX: Verhindert seitliches Wackeln/Scrollen auf Handys */
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      position: relative;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      scroll-behavior: smooth;
+    }
+
+    /* NAV & LOGO STYLING */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem; background: rgba(10,10,10,.85); backdrop-filter: blur(8px);
+      width: 100%;
+    }
+    .nav-logo-wrap {
+      display: flex; align-items: center; gap: 0.8rem;
+      text-decoration: none; z-index: 210;
+    }
+    .brand-logo {
+      height: 45px; width: 45px; object-fit: cover;
+      border-radius: 50%; border: 1.5px solid var(--gold); padding: 2px;
+      background: var(--black); transition: transform 0.3s ease;
+    }
+    .nav-logo-wrap:hover .brand-logo { transform: scale(1.08); }
+    .nav-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: .12em; color: var(--white); }
+    .nav-logo-text span { color: var(--gold); }
+
+    .nav-center-status {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      background: rgba(255,255,255,0.05); padding: 0.4rem 0.8rem; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #888;
+      display: inline-block;
+    }
+    .status-dot.open { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+    .status-dot.closed { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(247,245,242,.75); text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--black) !important;
+      padding: .55rem 1.4rem; font-weight: 500 !important;
+    }
+
+    /* HERO MIT SALON HINTERGRUND */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; text-align: center; padding-top: 5rem;
+      width: 100%;
+    }
+    .hero-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('EleganceSalon.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      filter: blur(8px) brightness(0.55);
+      z-index: 1;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 2;
+      background: 
+        radial-gradient(ellipse 90% 50% at 50% 100%, rgba(10,10,10,0.6), rgba(10,10,10,0.15)),
+        linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.85) 85%, var(--black) 100%);
+    }
+    .hero-content { position: relative; z-index: 3; padding: 0 1.5rem; display: flex; flex-direction: column; align-items: center; width: 100%; }
+    .hero-tag { font-size: .62rem; letter-spacing: .35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; }
+    .hero-title .line1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.8rem, 15vw, 12rem); line-height: .9; letter-spacing: .04em; display: block; color: var(--white); }
+    .hero-title .line2 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(3rem, 12vw, 9.5rem); color: var(--gold); display: block; line-height: 1; }
+    .hero-sub { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: rgba(247,245,242,.75); margin-top: 1.8rem; }
+    .hero-divider { width: 36px; height: 1px; background: var(--gold); margin: 1.8rem auto; }
+    .hero-rating { margin-top: 2.5rem; margin-bottom: 2rem; }
+    .hero-rating a { color: inherit; text-decoration: none; }
+    .hero-rating .score { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--gold); line-height: 1; }
+    .hero-rating .count { font-size: .62rem; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; margin-top: .2rem; }
+
+    /* MARQUEE BANNER */
+    .marquee-wrap {
+      position: relative; z-index: 10; background: var(--gold);
+      color: var(--black); padding: 1rem 0; overflow: hidden; display: flex; width: 100%;
+    }
+    .marquee-track {
+      display: flex; width: max-content; animation: marquee 20s linear infinite; white-space: nowrap;
+    }
+    .marquee-content { display: flex; align-items: center; }
+    .marquee-item { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: .25em; padding: 0 2rem; }
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* SECTION BASE */
+    .section { padding: 8rem 3rem; position: relative; z-index: 10; width: 100%; overflow: hidden; }
+    .label { font-size: .65rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .big-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 7vw, 6.5rem); line-height: .95; letter-spacing: .03em; }
+    .body-text { font-size: .88rem; line-height: 1.9; color: rgba(247,245,242,.65); }
+
+    /* TRUST BAR */
+    .trust-bar {
+      position: relative; z-index: 10;
+      background: var(--black); border-top: 1px solid rgba(201,168,76,.15);
+      padding: 2.5rem 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;
+      width: 100%;
+    }
+    .icon-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .8rem;
+      padding: .8rem 1.4rem; border: 1px solid rgba(201,168,76,.4); border-radius: 4px;
+      font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none; transition: all .25s ease;
+      background: transparent;
+    }
+    .icon-btn svg { width: 20px; height: 20px; fill: currentColor; transition: transform .25s ease; }
+    .icon-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+    .icon-btn:hover svg { transform: scale(1.1); }
+
+    /* ABOUT */
+    #about { background: var(--gray); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-left .big-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); }
+    .about-img {
+      width: 100%; aspect-ratio: 3/4;
+      background: url('EleganceSalon.webp') center/cover no-repeat;
+      position: relative;
+    }
+    .about-right { position: relative; width: 100%; }
+    .about-num { position: absolute; bottom: -1.5rem; left: 0; background: var(--gold); color: var(--black); padding: 1.2rem 1.8rem; }
+    .about-num .n { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; line-height: 1; display: block; }
+
+    /* SERVICES */
+    #services { background: var(--black); }
+    .services-list { max-width: 860px; margin: 0 auto; width: 100%; }
+    .service-item { border-top: 1px solid rgba(247,245,242,.1); overflow: hidden; }
+    .service-item:last-child { border-bottom: 1px solid rgba(247,245,242,.1); }
+    .service-trigger {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.8rem 0; color: var(--white); text-align: left;
+    }
+    .service-num { font-family: 'Bebas Neue', sans-serif; font-size: .9rem; color: var(--gold); margin-right: 1rem; }
+    .service-name-txt { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; }
+    .service-price-badge { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); }
+    .service-body { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .4s ease; }
+    .service-item.open .service-body { max-height: 300px; padding: 0 0 1.8rem 2rem; }
+
+    /* REVIEWS */
+    #reviews { background: var(--gray); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .review-card { background: var(--black); padding: 2.2rem 1.8rem; display: flex; flex-direction: column; gap: 1.2rem; }
+    .review-stars { color: var(--gold); }
+    .review-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; line-height: 1.6; color: rgba(247,245,242,.85); }
+
+    /* CONTACT SECTION */
+    #contact { background: var(--black); padding-bottom: 0; position: relative; z-index: 10; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; }
+    .contact-detail { margin-bottom: 2rem; }
+    .contact-detail a { color: var(--white); text-decoration: none; }
+    .social-icons-row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center; background: var(--gold); color: var(--black);
+      padding: 1rem 2.2rem; font-size: .72rem; letter-spacing: .25em; text-transform: uppercase;
+      font-weight: 500; text-decoration: none; gap: .6rem; border: none; cursor: pointer;
+    }
+    .hours-row { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid rgba(247,245,242,.08); }
+
+    /* MAP */
+    .map-full-width {
+      width: 100%; height: 380px; border-top: 1px solid rgba(201,168,76,.3);
+      border-bottom: 1px solid rgba(201,168,76,.3); filter: grayscale(90%) invert(92%) contrast(83%);
+      transition: filter 0.3s ease; margin-top: 4rem;
+    }
+    .map-full-width:hover { filter: none; }
+    .map-full-width iframe { width: 100%; height: 100%; border: 0; }
+
+    /* FOOTER */
+    footer {
+      background: var(--gray); border-top: 1px solid rgba(247,245,242,.06);
+      padding: 2.5rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+      position: relative; z-index: 10; width: 100%;
+    }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* PHONE FLOAT BUTTON */
+    .phone-float {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 300;
+      width: 52px; height: 52px; border-radius: 50%; background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(201,168,76,.4); text-decoration: none;
+    }
+    .phone-float svg { width: 24px; height: 24px; fill: var(--black); }
+
+    /* MOBILE OPTIMIERUNG (RESPONSIVE FIXES) */
+    @media (max-width: 860px) {
+      nav { padding: 0.8rem 1rem; }
+      .nav-links { display: none; }
+      .nav-center-status { font-size: 0.55rem; padding: 0.3rem 0.6rem; }
+
+      .hero-bg { background-attachment: scroll; } /* Behebt Wackeln auf Smartphones */
+
+      .section { padding: 4.5rem 1.2rem; }
+      #about, .contact-grid, .reviews-grid { 
+        grid-template-columns: 1fr; 
+        gap: 3rem; 
+      }
+
+      .service-name-txt { font-size: 1.4rem; }
+      .service-price-badge { font-size: 1.2rem; }
+
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
 <body>
 
-<a aria-label="Jetzt anrufen" href="tel:083318336741"></a>
+<!-- TELEFON FLOAT BUTTON -->
+<a class="phone-float" href="tel:083318336741" aria-label="Jetzt anrufen">
+  <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+</a>
 
-<nav>
-  <a href="#hero">
-    <img alt="Logo" src="LogoElegance.png">
-    <span>ELEGANCE<span>.</span></span>
+<!-- NAVIGATION -->
+<nav id="nav">
+  <a class="nav-logo-wrap" href="#hero">
+    <img src="LogoElegance.png" onerror="this.onerror=null; this.src='LogoElegance.jpg';" alt="Logo" class="brand-logo">
+    <span class="nav-logo-text">ELEGANCE<span>.</span></span>
   </a>
 
-  <div>
-    <span></span>
-    <span>Prüfe Status...</span>
+  <div class="nav-center-status">
+    <span id="statusDot" class="status-dot"></span>
+    <span id="statusText">Prüfe Status...</span>
   </div>
 
-  <ul>
+  <ul class="nav-links">
     <li><a href="#about">Über uns</a></li>
     <li><a href="#services">Leistungen</a></li>
     <li><a href="#reviews">Bewertungen</a></li>
-    <li><a href="#contact">Kontakt</a></li>
+    <li><a href="#contact" class="nav-cta">Kontakt</a></li>
   </ul>
 </nav>
 
+<!-- HERO SEKTION -->
 <section id="hero">
-  <div></div>
-  <div></div>
-  <div>
-    <span>Memmingen · Seit über 3 Jahren Ihr Vertrauen</span>
-    <h1>
-      <span>ELEGANCE</span>
-      <span>Barbershop</span>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Memmingen · Seit über 3 Jahren Ihr Vertrauen</span>
+    <h1 class="hero-title">
+      <span class="line1">ELEGANCE</span>
+      <span class="line2">Barbershop</span>
     </h1>
-    <p>Traditionelles Barber-Handwerk in Memmingen</p>
-    <div></div>
+    <p class="hero-sub">Traditionelles Barber-Handwerk in Memmingen</p>
+    <div class="hero-divider"></div>
     <div>
-      <a href="tel:083318336741"><span>Jetzt anrufen</span></a>
+      <a href="tel:083318336741" class="btn-gold"><span>Jetzt anrufen</span></a>
     </div>
-    <div>
-      <a href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen" target="_blank" rel="noopener noreferrer">
-        <div>4.7 ★★★★★</div>
-        <div>141 Google-Bewertungen ↗</div>
+    <div class="hero-rating">
+      <a href="https://www.google.com/maps/search/Elegance+Barbershop+Memmingen" target="_blank">
+        <div class="score">4.7 ★★★★★</div>
+        <div class="count">141 Google-Bewertungen ↗</div>
       </a>
     </div>
   </div>
 </section>
 
-<div>
-  <div>
-    <div>
-      <span>ELEGANCE BARBERSHOP</span><span>✦</span>
-      <span>MEMMINGEN</span><span>✦</span>
-      <span>HAARSCHNITT</span><span>✦</span>
-      <span>BARTPFLEGE</span><span>✦</span>
-      <span>STIL &amp; PRÄZISION</span><span>✦</span>
+<!-- BANNER -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-content">
+      <span class="marquee-item">ELEGANCE BARBERSHOP</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">MEMMINGEN</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">HAARSCHNITT</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">BARTPFLEGE</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">STIL & PRÄZISION</span><span class="marquee-item">✦</span>
     </div>
-    <div>
-      <span>ELEGANCE BARBERSHOP</span><span>✦</span>
-      <span>MEMMINGEN</span><span>✦</span>
-      <span>HAARSCHNITT</span><span>✦</span>
-      <span>BARTPFLEGE</span><span>✦</span>
-      <span>STIL &amp; PRÄZISION</span><span>✦</span>
+    <div class="marquee-content">
+      <span class="marquee-item">ELEGANCE BARBERSHOP</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">MEMMINGEN</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">HAARSCHNITT</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">BARTPFLEGE</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">STIL & PRÄZISION</span><span class="marquee-item">✦</span>
     </div>
   </div>
 </div>
 
-<div>
-  <a aria-label="Google Reviews" href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen" target="_blank" rel="noopener noreferrer">
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <a class="icon-btn" href="https://www.google.com/maps/search/Elegance+Barbershop+Memmingen" target="_blank" aria-label="Google Reviews">
+    <svg viewBox="0 0 24 24"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.761H12.545z"/></svg>
     Google Reviews
   </a>
-  <a aria-label="Facebook" href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank" rel="noopener noreferrer">
+  <a class="icon-btn" href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank" aria-label="Facebook">
+    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     Facebook
   </a>
-  <a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+  <a class="icon-btn" href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
     Instagram
   </a>
 </div>
 
-<section id="about">
-  <div>
-    <span>Über uns</span>
-    <h2>HANDWERK<br>MIT <em>Stil</em></h2>
-    <div></div>
-    <p>Willkommen bei <strong>Elegance Barbershop</strong> – Ihrem Premium-Barbier im Herzen Memmingens. Wir verbinden klassische Handwerkskunst mit modernen Techniken.</p>
-    <p>Unsere Kunden vertrauen uns seit Jahren. Viele kommen seit über <strong>3 Jahren</strong> regelmäßig zu uns – dieses Vertrauen verpflichtet uns täglich aufs Neue.</p>
+<!-- ÜBER UNS -->
+<section id="about" class="section">
+  <div class="about-left">
+    <span class="label">Über uns</span>
+    <h2 class="big-title">HANDWERK<br>MIT <em>Stil</em></h2>
+    <div style="height:1.5rem"></div>
+    <p class="body-text">Willkommen bei <strong>Elegance Barbershop</strong> – Ihrem Premium-Barbier im Herzen Memmingens. Wir verbinden klassische Handwerkskunst mit modernen Techniken.</p>
+    <p class="body-text" style="margin-top:1rem">Unsere Kunden vertrauen uns seit Jahren. Viele kommen seit über <strong>3 Jahren</strong> regelmäßig zu uns – dieses Vertrauen verpflichtet uns täglich aufs Neue.</p>
   </div>
-  <div>
-    <div></div>
-    <div>
-      <span>4.7</span>
-      <span>Google Rating</span>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <span>Leistungen &amp; Preise</span>
-  <h2>UNSERE SERVICES</h2>
-  <div>
-    <div>
-      <h3>Haarschnitt</h3>
-      <div><p>Beratung · Waschen · Schneiden · Trocknen · Styling (ca. 30–45 Min.)</p></div>
-      </div>
-    <div>
-      <h3>Bartpflege</h3>
-      <div><p>Beratung · Trimmen · Formen · Konturierung · Rasur (ca. 20–30 Min.)</p></div>
-    </div>
-    <div>
-      <h3>Fade Cut</h3>
-      <div><p>Präzise Übergänge · Skin Fade · High/Mid/Low Fade · Styling (ca. 40–55 Min.)</p></div>
-    </div>
-    <div>
-      <h3>Kombipaket</h3>
-      <div><p>Schnitt + Bart + Styling – alles in einem Termin (ca. 60–75 Min.)</p></div>
+  <div class="about-right">
+    <div class="about-img"></div>
+    <div class="about-num">
+      <span class="n">4.7</span>
+      <span style="font-size:.6rem; text-transform:uppercase;">Google Rating</span>
     </div>
   </div>
 </section>
 
-<section id="reviews">
-  <span>Kundenstimmen</span>
-  <h2>WAS UNSERE KUNDEN SAGEN</h2>
-  <div>
-    <div>
-      <div>★★★★★</div>
-      <p>„Bester Friseur – vor allem das beste Personal. Schneide seit über 3 Jahren dort.“</p>
-      <span>Simon Bilici · GOOGLE</span>
+<!-- LEISTUNGEN -->
+<section id="services" class="section">
+  <span class="label">Leistungen & Preise</span>
+  <h2 class="big-title" style="margin-bottom:3rem;">UNSERE SERVICES</h2>
+  <div class="services-list">
+    <div class="service-item">
+      <button class="service-trigger" onclick="toggleService(0)">
+        <div><span class="service-num">01</span><span class="service-name-txt">HERRENHAARSCHNITT</span></div>
+        <span class="service-price-badge">ab 20 €</span>
+      </button>
+      <div class="service-body"><p class="body-text">Beratung · Waschen · Schneiden · Trocknen · Styling (ca. 30–45 Min.)</p></div>
     </div>
-    <div>
-      <div>★★★★★</div>
-      <p>„Sehr gut. Bin zufriedener Stammkunde.“</p>
-      <span>Vladyslav Rudyi · GOOGLE</span>
+    <div class="service-item">
+      <button class="service-trigger" onclick="toggleService(1)">
+        <div><span class="service-num">02</span><span class="service-name-txt">BARTPFLEGE & RASUR</span></div>
+        <span class="service-price-badge">ab 12 €</span>
+      </button>
+      <div class="service-body"><p class="body-text">Beratung · Trimmen · Formen · Konturierung · Rasur (ca. 20–30 Min.)</p></div>
     </div>
-    <div>
-      <div>★★★★★</div>
-      <p>„Professionell, freundlich und immer präzise. Klare Empfehlung für jeden Mann in Memmingen.“</p>
-      <span>Stammkunde · GOOGLE</span>
+    <div class="service-item">
+      <button class="service-trigger" onclick="toggleService(2)">
+        <div><span class="service-num">03</span><span class="service-name-txt">FADE & UNDERCUT</span></div>
+        <span class="service-price-badge">ab 22 €</span>
+      </button>
+      <div class="service-body"><p class="body-text">Präzise Übergänge · Skin Fade · High/Mid/Low Fade · Styling (ca. 40–55 Min.)</p></div>
+    </div>
+    <div class="service-item">
+      <button class="service-trigger" onclick="toggleService(3)">
+        <div><span class="service-num">04</span><span class="service-name-txt">KOMPLETT-PAKET</span></div>
+        <span class="service-price-badge">ab 30 €</span>
+      </button>
+      <div class="service-body"><p class="body-text">Schnitt + Bart + Styling – alles in einem Termin (ca. 60–75 Min.)</p></div>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div>
+<!-- BEWERTUNGEN -->
+<section id="reviews" class="section">
+  <span class="label">Kundenstimmen</span>
+  <h2 class="big-title">WAS UNSERE KUNDEN SAGEN</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-quote">„Bester Friseur – vor allem das beste Personal. Schneide seit über 3 Jahren dort.“</p>
+      <span style="font-size:.65rem; color:var(--muted)">Simon Bilici · GOOGLE</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-quote">„Sehr gut. Bin zufriedener Stammkunde.“</p>
+      <span style="font-size:.65rem; color:var(--muted)">Vladyslav Rudyi · GOOGLE</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-quote">„Professionell, freundlich und immer präzise. Klare Empfehlung für jeden Mann in Memmingen.“</p>
+      <span style="font-size:.65rem; color:var(--muted)">Stammkunde · GOOGLE</span>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT & ÖFFNUNGSZEITEN -->
+<section id="contact" style="background: var(--black); padding-top: 6rem;">
+  <div class="contact-grid" style="padding: 0 1.5rem;">
     <div>
-      <span>Besuchen Sie uns</span>
-      <h2>KONTAKT &amp; LAGE</h2>
+      <span class="label">Besuchen Sie uns</span>
+      <h2 class="big-title" style="margin-bottom:2rem;">KONTAKT & LAGE</h2>
       
-      <div>
-        <span>Adresse</span>
-        <p>Hinter dem Salzstadel 1<br>87700 Memmingen</p>
+      <div class="contact-detail">
+        <span class="label">Adresse</span>
+        <p class="body-text">Hinter dem Salzstadel 1<br>87700 Memmingen</p>
       </div>
       
-      <div>
-        <span>Telefon</span>
-        <p><a href="tel:083318336741">08331 8336741</a></p>
+      <div class="contact-detail">
+        <span class="label">Telefon</span>
+        <p class="body-text"><a href="tel:083318336741">08331 8336741</a></p>
       </div>
 
-      <div>
-        <span>Social &amp; Connect</span>
-        <div>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" title="Instagram">Instagram</a>
-          <a href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank" rel="noopener noreferrer" title="Facebook">Facebook</a>
-          <a href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen" target="_blank" rel="noopener noreferrer" title="Google Maps Anfahrt">Google Maps</a>
+      <div class="contact-detail">
+        <span class="label">Social & Connect</span>
+        <div class="social-icons-row">
+          <a class="icon-btn" href="https://www.instagram.com" target="_blank" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank" title="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.google.com/maps/search/Elegance+Barbershop+Memmingen" target="_blank" title="Google Map">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </a>
         </div>
       </div>
     </div>
 
     <div>
-      <span>Öffnungszeiten</span>
-      <div><span>Montag</span><span>09:00 – 18:30</span></div>
-      <div><span>Dienstag</span><span>09:00 – 18:30</span></div>
-      <div><span>Mittwoch</span><span>09:00 – 18:30</span></div>
-      <div><span>Donnerstag</span><span>09:00 – 18:30</span></div>
-      <div><span>Freitag</span><span>09:00 – 18:30</span></div>
-      <div><span>Samstag</span><span>09:00 – 16:00</span></div>
-      <div><span>Sonntag</span><span>Geschlossen</span></div>
+      <span class="label">Öffnungszeiten</span>
+      <div class="hours-row"><span>Montag</span><span>09:00 – 18:30</span></div>
+      <div class="hours-row"><span>Dienstag</span><span>09:00 – 18:30</span></div>
+      <div class="hours-row"><span>Mittwoch</span><span>09:00 – 18:30</span></div>
+      <div class="hours-row"><span>Donnerstag</span><span>09:00 – 18:30</span></div>
+      <div class="hours-row"><span>Freitag</span><span>09:00 – 18:30</span></div>
+      <div class="hours-row"><span>Samstag</span><span>09:00 – 16:00</span></div>
+      <div class="hours-row" style="opacity:.4"><span>Sonntag</span><span>Geschlossen</span></div>
     </div>
   </div>
 
-  <div style="text-align: center; margin-top: 20px;">
-    <a href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 24px; background-color: #333; color: #fff; text-decoration: none; border-radius: 4px;">
-      📍 Route auf Google Maps planen (Externer Link)
-    </a>
+  <!-- MAP -->
+  <div class="map-full-width">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.651717466099!2d10.180299676882654!3d47.98181637122606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479b94098ffb4e2b%3A0x8bf2cb85bc885747!2sHinter%20dem%20Salzstadel%201%2C%2087700%20Memmingen!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <span>ELEGANCE<span>.</span></span>
-  <span>© Elegance Barbershop Memmingen</span>
-  <div>
+  <span class="footer-logo">ELEGANCE<span>.</span></span>
+  <span style="font-size:.65rem; color:var(--muted)">© Elegance Barbershop Memmingen</span>
+  <div class="footer-links">
     <a href="#hero">Start</a>
     <a href="#services">Leistungen</a>
     <a href="#reviews">Bewertungen</a>
     <a href="#contact">Kontakt</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
   </div>
 </footer>
 
+<script>
+  function toggleService(index) {
+    document.querySelectorAll('.service-item').forEach((item, i) => {
+      item.classList.toggle('open', i === index && !item.classList.contains('open'));
+      if (i !== index) item.classList.remove('open');
+    });
+  }
+
+  // DYNAMISCHE STATUS-BERECHNUNG (ÖFFNUNGSZEITEN)
+  function updateBusinessStatus() {
+    const now = new Date();
+    const day = now.getDay();
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const currentTime = hour * 60 + minute;
+
+    const dot = document.getElementById('statusDot');
+    const text = document.getElementById('statusText');
+
+    let isOpen = false;
+
+    if (day >= 1 && day <= 5) {
+      if (currentTime >= 540 && currentTime < 1110) isOpen = true; // Mo-Fr: 09:00 - 18:30
+    } else if (day === 6) {
+      if (currentTime >= 540 && currentTime < 960) isOpen = true; // Sa: 09:00 - 16:00
+    }
+
+    if (isOpen) {
+      dot.className = 'status-dot open';
+      text.textContent = 'Jetzt geöffnet';
+    } else {
+      dot.className = 'status-dot closed';
+      text.textContent = 'Geschlossen';
+    }
+  }
+
+  updateBusinessStatus();
+  setInterval(updateBusinessStatus, 60000);
+</script>
 </body>
 </html>
