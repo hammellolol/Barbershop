@@ -10,14 +10,24 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
-    :root {
-      --black: #0a0a0a;
-      --white: #f7f5f2;
-      --gold: #c9a84c;
-      --gray: #1a1a1a;
-      --mid: #2a2a2a;
-      --muted: #888;
-    }
+    /* Automatische Umschaltung für White Mode / Light Mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --black: #f7f5f2; /* Der Hintergrund wird jetzt hell */
+    --white: #0a0a0a; /* Der Text wird jetzt dunkel */
+    --gray: #e5e5e5;  /* Karten bekommen einen hellgrauen Ton */
+  }
+
+  /* Anpassung der transparenten Elemente für helle Hintergründe */
+  nav {
+    background: rgba(247, 245, 242, 0.85) !important;
+  }
+  
+  .legal-card, .review-card {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
 
     /* GLOBAL MOBILE FIX */
     html, body {
