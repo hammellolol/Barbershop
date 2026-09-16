@@ -11,16 +11,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     /* ==========================================
-       1. DARK MODE (STANDARD) - TIEFSCHWARZ & GOLD
+       1. DARK MODE (STANDARD) - ABSOLUT SCHWARZ & GOLD
        ========================================== */
     :root {
-      --black: #080808;       /* Sattes Tiefschwarz */
-      --gray: #121212;        /* Dunkelgrau für Karten/Sektionen */
-      --mid: #1e1e1e;         /* Mittleres Grau */
-      --white: #ffffff;       /* Reines Weiß für Lesbarkeit */
-      --muted: #aaaaaa;       /* Gut lesbares Hellgrau */
-      --gold: #d4af37;        /* Klares, kräftiges Premium-Gold */
-      --nav-bg: rgba(8, 8, 8, 0.92);
+      --black: #000000;       /* Reines Schwarz */
+      --gray: #0a0a0a;        /* Sehr dunkler Kontrast für Karten */
+      --mid: #141414;         /* Dezent helleres Schwarz/Grau */
+      --white: #ffffff;       /* Reines Weiß */
+      --muted: #aaaaaa;       /* Nebentext-Grau */
+      --gold: #d4af37;        /* Premium-Gold */
+      --nav-bg: rgba(0, 0, 0, 0.95);
       --border-color: rgba(212, 175, 55, 0.2);
     }
 
@@ -29,13 +29,13 @@
        ========================================== */
     @media (prefers-color-scheme: light) {
       :root {
-        --black: #ffffff;       /* Reines Weiß als Hintergrund */
-        --gray: #f4f4f6;        /* Sehr helles, sauberes Grau */
-        --mid: #e5e5e7;         /* Dezent dunkleres Grau */
-        --white: #0f0f0f;       /* Fast Schwarz für perfekten Kontrast */
-        --muted: #555555;       /* Dunkles Grau für Nebentexte */
-        --gold: #b8860b;        /* Edles Dunkelgold */
-        --nav-bg: rgba(255, 255, 255, 0.92);
+        --black: #ffffff;       /* Weiß als Hintergrund */
+        --gray: #f4f4f6;        /* Hellgrau */
+        --mid: #e5e5e7;         
+        --white: #0f0f0f;       /* Fast Schwarz */
+        --muted: #555555;       
+        --gold: #b8860b;        /* Dunkelgold */
+        --nav-bg: rgba(255, 255, 255, 0.95);
         --border-color: rgba(0, 0, 0, 0.12);
       }
     }
@@ -59,7 +59,7 @@
     .brand-logo {
       height: 45px; width: 45px; object-fit: cover;
       border-radius: 50%; border: 1.5px solid var(--gold); padding: 2px;
-      background: #080808; transition: transform 0.3s ease;
+      background: #000000; transition: transform 0.3s ease;
     }
     .nav-logo-wrap:hover .brand-logo { transform: scale(1.08); }
     .nav-logo-text { font-weight: 800; font-size: 1.8rem; letter-spacing: .12em; color: var(--white); text-transform: uppercase; }
@@ -86,12 +86,12 @@
       padding: .65rem 1.4rem; font-weight: 700 !important; border-radius: 2px;
     }
 
-    /* HERO SEKTION - OPTIMIERT FÜR BILD-VISIBILITÄT */
+    /* HERO SEKTION */
     #hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden; text-align: center; padding-top: 5rem; width: 100%;
-      background: #080808;
+      background: #000000;
     }
     .hero-bg {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -101,7 +101,7 @@
     }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 2;
-      background: linear-gradient(to bottom, rgba(8,8,8,0.3) 0%, rgba(8,8,8,0.75) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
     }
     .hero-content { position: relative; z-index: 3; padding: 0 1.5rem; display: flex; flex-direction: column; align-items: center; width: 100%; }
     .hero-tag { font-size: .75rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: #d4af37; margin-bottom: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
@@ -237,12 +237,10 @@
 </head>
 <body>
 
-<!-- TELEFON FLOAT BUTTON -->
 <a class="phone-float" href="tel:083318336741" aria-label="Jetzt anrufen">
   <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
 </a>
 
-<!-- NAVIGATION -->
 <nav id="nav">
   <a class="nav-logo-wrap" href="#hero">
     <img src="LogoElegance.png" onerror="this.onerror=null; this.src='LogoElegance.jpg';" alt="Logo" class="brand-logo">
@@ -262,7 +260,6 @@
   </ul>
 </nav>
 
-<!-- HERO SEKTION -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -286,7 +283,6 @@
   </div>
 </section>
 
-<!-- BANNER -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <div class="marquee-content">
@@ -306,7 +302,6 @@
   </div>
 </div>
 
-<!-- TRUST BAR -->
 <div class="trust-bar">
   <a class="icon-btn" href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen" target="_blank" rel="noopener noreferrer" aria-label="Google Reviews">
     <svg viewBox="0 0 24 24"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.761H12.545z"/></svg>
@@ -322,7 +317,6 @@
   </a>
 </div>
 
-<!-- ÜBER UNS -->
 <section id="about" class="section">
   <div class="about-left">
     <span class="label">Über uns</span>
@@ -340,7 +334,6 @@
   </div>
 </section>
 
-<!-- LEISTUNGEN -->
 <section id="services" class="section">
   <span class="label">Leistungen & Preise</span>
   <h2 class="big-title" style="margin-bottom:3rem;">UNSERE SERVICES</h2>
@@ -376,7 +369,6 @@
   </div>
 </section>
 
-<!-- BEWERTUNGEN -->
 <section id="reviews" class="section">
   <span class="label">Kundenstimmen</span>
   <h2 class="big-title">WAS UNSERE KUNDEN SAGEN</h2>
@@ -399,7 +391,6 @@
   </div>
 </section>
 
-<!-- KONTAKT & ÖFFNUNGSZEITEN -->
 <section id="contact" style="background: var(--black); padding-top: 6rem;">
   <div class="contact-grid" style="padding: 0 1.5rem;">
     <div>
@@ -441,7 +432,6 @@
     </div>
   </div>
 
-  <!-- GOOGLE MAPS ZWEI-KLICK-DATENSCHUTZ -->
   <div class="map-wrapper" id="mapContainer">
     <div class="map-placeholder" id="mapPlaceholder">
       <p>Aus Datenschutzgründen wird Google Maps erst nach Ihrer Aktivierung geladen.</p>
@@ -452,7 +442,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-logo">ELEGANCE<span>.</span></span>
   <span style="font-size:.65rem; color:var(--muted)">© Elegance Barbershop Memmingen</span>
@@ -474,7 +463,6 @@
     });
   }
 
-  // GOOGLE MAPS NACHLADEN
   function loadGoogleMap() {
     const container = document.getElementById('mapContainer');
     document.getElementById('mapPlaceholder').remove();
@@ -487,7 +475,6 @@
     container.appendChild(iframe);
   }
 
-  // DYNAMISCHER OFFEN/GESCHLOSSEN STATUS
   function updateBusinessStatus() {
     const now = new Date();
     const day = now.getDay();
@@ -499,9 +486,9 @@
     let isOpen = false;
 
     if (day >= 1 && day <= 5) {
-      if (currentTime >= 540 && currentTime < 1110) isOpen = true; // 09:00 - 18:30
+      if (currentTime >= 540 && currentTime < 1110) isOpen = true;
     } else if (day === 6) {
-      if (currentTime >= 540 && currentTime < 960) isOpen = true; // 09:00 - 16:00
+      if (currentTime >= 540 && currentTime < 960) isOpen = true;
     }
 
     if (isOpen) {
