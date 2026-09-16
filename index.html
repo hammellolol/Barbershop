@@ -21,7 +21,6 @@
       --muted: #aaaaaa;       /* Gut lesbares Hellgrau */
       --gold: #d4af37;        /* Klares, kräftiges Premium-Gold */
       --nav-bg: rgba(8, 8, 8, 0.92);
-      --hero-overlay: linear-gradient(to bottom, rgba(8,8,8,0.4) 0%, rgba(8,8,8,0.95) 100%);
       --border-color: rgba(212, 175, 55, 0.2);
     }
 
@@ -37,7 +36,6 @@
         --muted: #555555;       /* Dunkles Grau für Nebentexte */
         --gold: #b8860b;        /* Edles Dunkelgold */
         --nav-bg: rgba(255, 255, 255, 0.92);
-        --hero-overlay: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.95) 100%);
         --border-color: rgba(0, 0, 0, 0.12);
       }
     }
@@ -61,7 +59,7 @@
     .brand-logo {
       height: 45px; width: 45px; object-fit: cover;
       border-radius: 50%; border: 1.5px solid var(--gold); padding: 2px;
-      background: var(--black); transition: transform 0.3s ease;
+      background: #080808; transition: transform 0.3s ease;
     }
     .nav-logo-wrap:hover .brand-logo { transform: scale(1.08); }
     .nav-logo-text { font-weight: 800; font-size: 1.8rem; letter-spacing: .12em; color: var(--white); text-transform: uppercase; }
@@ -88,32 +86,33 @@
       padding: .65rem 1.4rem; font-weight: 700 !important; border-radius: 2px;
     }
 
-    /* HERO SEKTION */
+    /* HERO SEKTION - OPTIMIERT FÜR BILD-VISIBILITÄT */
     #hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden; text-align: center; padding-top: 5rem; width: 100%;
+      background: #080808;
     }
     .hero-bg {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       background-image: url('EleganceSalon.webp');
       background-size: cover; background-position: center;
-      filter: grayscale(30%) brightness(0.6); z-index: 1;
+      filter: brightness(0.65) contrast(1.05); z-index: 1;
     }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 2;
-      background: var(--hero-overlay);
+      background: linear-gradient(to bottom, rgba(8,8,8,0.3) 0%, rgba(8,8,8,0.75) 100%);
     }
     .hero-content { position: relative; z-index: 3; padding: 0 1.5rem; display: flex; flex-direction: column; align-items: center; width: 100%; }
-    .hero-tag { font-size: .7rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
-    .hero-title .line1 { font-weight: 900; font-size: clamp(3.5rem, 13vw, 11rem); line-height: .9; letter-spacing: .04em; display: block; color: var(--white); text-transform: uppercase; }
-    .hero-title .line2 { font-style: italic; font-size: clamp(2.8rem, 10vw, 8.5rem); color: var(--gold); display: block; line-height: 1; font-weight: 400; }
-    .hero-sub { font-size: .75rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 1.5rem; }
-    .hero-divider { width: 40px; height: 2px; background: var(--gold); margin: 1.8rem auto; }
+    .hero-tag { font-size: .75rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: #d4af37; margin-bottom: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+    .hero-title .line1 { font-weight: 900; font-size: clamp(3.5rem, 13vw, 11rem); line-height: .9; letter-spacing: .04em; display: block; color: #ffffff; text-transform: uppercase; }
+    .hero-title .line2 { font-style: italic; font-size: clamp(2.8rem, 10vw, 8.5rem); color: #d4af37; display: block; line-height: 1; font-weight: 400; }
+    .hero-sub { font-size: .75rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #dddddd; margin-top: 1.5rem; }
+    .hero-divider { width: 40px; height: 2px; background: #d4af37; margin: 1.8rem auto; }
     .hero-rating { margin-top: 1.5rem; margin-bottom: 2rem; }
     .hero-rating a { color: inherit; text-decoration: none; }
-    .hero-rating .score { font-weight: 800; font-size: 2.2rem; color: var(--gold); line-height: 1; }
-    .hero-rating .count { font-size: .65rem; font-weight: 600; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; margin-top: .3rem; }
+    .hero-rating .score { font-weight: 800; font-size: 2.2rem; color: #d4af37; line-height: 1; }
+    .hero-rating .count { font-size: .65rem; font-weight: 600; letter-spacing: .15em; color: #cccccc; text-transform: uppercase; margin-top: .3rem; }
 
     /* BANNER */
     .marquee-wrap {
