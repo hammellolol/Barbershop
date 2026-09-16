@@ -1,508 +1,533 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>Elegance Barbershop Memmingen | Herrenfriseur, Bartpflege & Fade Cuts</title>
-  <meta name="description" content="Elegance Barbershop in Memmingen – Premium Herrenfriseur für Haarschnitt, Bartpflege, Fade Cuts und mehr. 4,7 Sterne auf Google."/>
-  <link rel="icon" type="image/x-icon" href="LogoElegance.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELEGANCE. — Barbershop Memmingen</title>
+  <meta name="description" content="ELEGANCE. Barbershop in Memmingen. Professionelle Herrenhaarschnitte, Bartpflege und Rasur. Jetzt Termin vereinbaren!">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    /* ==========================================
-       1. DARK MODE - EDLER GRAUTON FÜR SEKTIONEN
-       ========================================== */
+    /* ==========================================================================
+       VARIABLES & RESET
+       ========================================================================== */
     :root {
-      --black: #000000;       /* Haupt-Hintergrund der Seite bleibt tiefschwarz */
-      --gray: #0d0d0d;        /* Abschnitte & Karten bekommen wieder den edlen Grauton */
-      --mid: #141414;         /* Für feine Akzente */
-      --white: #ffffff;       
-      --muted: #aaaaaa;       
-      --gold: #d4af37;        
-      --nav-bg: rgba(0, 0, 0, 0.98);
-      --border-color: rgba(212, 175, 55, 0.25);
+      --black: #000000;
+      --gray: #050505;        /* Angepasst: Sehr dunkler Ton, passend zu Bild 2 */
+      --mid: #0a0a0a;         /* Angepasst: Dezentere Abstufung */
+      --white: #ffffff;
+      --muted: #aaaaaa;
+      --gold: #c89551;        /* Akzentfarbe für Preise & Buttons */
+      --nav-bg: rgba(0, 0, 0, 0.95);
+      --border-color: rgba(200, 149, 81, 0.2);
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* ==========================================
-       2. LIGHT MODE (PURE WHITE & DEEP GOLD)
-       ========================================== */
-    @media (prefers-color-scheme: light) {
-      :root {
-        --black: #ffffff;       /* Weiß als Hintergrund */
-        --gray: #f4f4f6;        /* Hellgrau */
-        --mid: #e5e5e7;         
-        --white: #0f0f0f;       /* Fast Schwarz */
-        --muted: #555555;       
-        --gold: #b8860b;        /* Dunkelgold */
-        --nav-bg: rgba(255, 255, 255, 0.95);
-        --border-color: rgba(0, 0, 0, 0.12);
-      }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    /* GLOBAL STYLES */
-    html, body {
-      width: 100%; max-width: 100vw; overflow-x: hidden;
-      position: relative; background: var(--black); color: var(--white);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-weight: 400; scroll-behavior: smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* NAVIGATION */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem; background: var(--nav-bg); backdrop-filter: blur(12px);
-      width: 100%; border-bottom: 1px solid var(--border-color);
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    .nav-logo-wrap { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; z-index: 210; }
-    .brand-logo {
-      height: 45px; width: 45px; object-fit: cover;
-      border-radius: 50%; border: 1.5px solid var(--gold); padding: 2px;
-      background: #000000; transition: transform 0.3s ease;
-    }
-    .nav-logo-wrap:hover .brand-logo { transform: scale(1.08); }
-    .nav-logo-text { font-weight: 800; font-size: 1.8rem; letter-spacing: .12em; color: var(--white); text-transform: uppercase; }
-    .nav-logo-text span { color: var(--gold); }
 
-    .nav-center-status {
-      display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.68rem; letter-spacing: 0.15em; font-weight: 600; text-transform: uppercase;
-      background: var(--gray); padding: 0.45rem 0.9rem; border-radius: 20px;
-      border: 1px solid var(--border-color); color: var(--white);
+    /* ==========================================================================
+       TYPOGRAPHY & UTILITIES
+       ========================================================================== */
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #888; display: inline-block; }
-    .status-dot.open { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
-    .status-dot.closed { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
 
-    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-subtitle {
+      color: var(--gold);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
     .nav-links a {
-      font-size: .75rem; letter-spacing: .18em; font-weight: 600; text-transform: uppercase;
-      color: var(--white); text-decoration: none; transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      background: var(--gold) !important; color: #ffffff !important;
-      padding: .65rem 1.4rem; font-weight: 700 !important; border-radius: 2px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s ease;
     }
 
-    /* HERO SEKTION */
-    #hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; text-align: center; padding-top: 5rem; width: 100%;
-      background: #000000;
+    .nav-links a:hover {
+      color: var(--gold);
     }
-    .hero-bg {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background-image: url('EleganceSalon.webp');
-      background-size: cover; background-position: center;
-      filter: brightness(0.85) contrast(1.05);
-      z-index: 1;
-    }
-    .hero-overlay {
-      position: absolute; inset: 0; z-index: 2;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 70%, #000000 100%);
-    }
-    .hero-content { position: relative; z-index: 3; padding: 0 1.5rem; display: flex; flex-direction: column; align-items: center; width: 100%; }
-    .hero-tag { font-size: .75rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: #d4af37; margin-bottom: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-    .hero-title .line1 { font-weight: 900; font-size: clamp(3.5rem, 13vw, 11rem); line-height: .9; letter-spacing: .04em; display: block; color: #ffffff; text-transform: uppercase; }
-    .hero-title .line2 { font-style: italic; font-size: clamp(2.8rem, 10vw, 8.5rem); color: #d4af37; display: block; line-height: 1; font-weight: 400; }
-    .hero-sub { font-size: .75rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #dddddd; margin-top: 1.5rem; }
-    .hero-divider { width: 40px; height: 2px; background: #d4af37; margin: 1.8rem auto; }
-    .hero-rating { margin-top: 1.5rem; margin-bottom: 2rem; }
-    .hero-rating a { color: inherit; text-decoration: none; }
-    .hero-rating .score { font-weight: 800; font-size: 2.2rem; color: #d4af37; line-height: 1; }
-    .hero-rating .count { font-size: .65rem; font-weight: 600; letter-spacing: .15em; color: #cccccc; text-transform: uppercase; margin-top: .3rem; }
 
-    /* BANNER */
-    .marquee-wrap {
-      position: relative; z-index: 10; background: var(--gold);
-      color: #ffffff; padding: 0.9rem 0; overflow: hidden; display: flex; width: 100%;
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 20px;
     }
-    .marquee-track { display: flex; width: max-content; animation: marquee 20s linear infinite; white-space: nowrap; }
-    .marquee-content { display: flex; align-items: center; }
-    .marquee-item { font-weight: 800; font-size: 1.1rem; letter-spacing: .25em; padding: 0 2rem; text-transform: uppercase; }
-    @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
 
-    /* SEKTIONEN */
-    .section { padding: 7rem 2rem; position: relative; z-index: 10; width: 100%; }
-    .label { font-size: .7rem; font-weight: 700; letter-spacing: .35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: block; }
-    .big-title { font-weight: 900; font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: .95; letter-spacing: .02em; text-transform: uppercase; color: var(--white); }
-    .body-text { font-size: .95rem; line-height: 1.8; color: var(--muted); }
-
-    /* TRUST BAR */
-    .trust-bar {
-      position: relative; z-index: 10; background: var(--gray);
-      border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
-      padding: 2rem 1.5rem; display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; justify-content: center; width: 100%;
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #ff3b30;
     }
-    .icon-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: .8rem;
-      padding: .8rem 1.6rem; border: 1px solid var(--border-color); border-radius: 4px;
-      font-size: .75rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase;
-      color: var(--white); text-decoration: none; transition: all .25s ease; background: var(--black);
+
+    .status-dot.open {
+      background-color: #34c759;
     }
-    .icon-btn svg { width: 18px; height: 18px; fill: var(--gold); transition: transform .25s ease; }
-    .icon-btn:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ABOUT */
-    #about { background: var(--gray); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .about-left .big-title em { font-style: italic; color: var(--gold); font-weight: 300; }
-    .about-img { width: 100%; aspect-ratio: 4/5; background: url('EleganceSalon.webp') center/cover no-repeat; border-radius: 4px; }
-    .about-right { position: relative; width: 100%; }
-    .about-num { position: absolute; bottom: -1.5rem; left: 0; background: var(--gold); color: #ffffff; padding: 1.2rem 1.8rem; border-radius: 2px; }
-    .about-num .n { font-weight: 900; font-size: 2.8rem; line-height: 1; display: block; }
-
-    /* SERVICES */
-    #services { background: var(--black); }
-    .services-list { max-width: 900px; margin: 0 auto; width: 100%; }
-    .service-item { border-top: 1px solid var(--border-color); }
-    .service-item:last-child { border-bottom: 1px solid var(--border-color); }
-    .service-trigger {
-      width: 100%; background: none; border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.8rem 0; color: var(--white); text-align: left;
+    .btn-contact {
+      background: #4a1505;
+      color: var(--white);
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: background 0.3s ease;
     }
-    .service-num { font-weight: 800; font-size: 1rem; color: var(--gold); margin-right: 1rem; }
-    .service-name-txt { font-weight: 800; font-size: 1.6rem; text-transform: uppercase; }
-    .service-price-badge { font-weight: 800; font-size: 1.4rem; color: var(--gold); }
-    .service-body { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .4s ease; }
-    .service-item.open .service-body { max-height: 300px; padding: 0 0 1.8rem 2rem; }
 
-    /* REVIEWS */
-    #reviews { background: var(--gray); }
-    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    .review-card { background: var(--black); padding: 2.2rem 1.8rem; display: flex; flex-direction: column; gap: 1.2rem; border: 1px solid var(--border-color); border-radius: 4px; }
-    .review-stars { color: var(--gold); font-size: 1.1rem; }
-    .review-quote { font-style: italic; font-size: 1rem; line-height: 1.6; color: var(--white); }
-
-    /* CONTACT */
-    #contact { background: var(--black); padding-bottom: 0; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; }
-    .contact-detail { margin-bottom: 2rem; }
-    .contact-detail a { color: var(--white); text-decoration: none; font-weight: 600; }
-    .social-icons-row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
-    .btn-gold {
-      display: inline-flex; align-items: center; justify-content: center; background: var(--gold); color: #ffffff !important;
-      padding: 1rem 2.2rem; font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
-      font-weight: 700; text-decoration: none; gap: .6rem; border: none; cursor: pointer; border-radius: 2px;
+    .btn-contact:hover {
+      background: #631c07;
     }
-    .hours-row { display: flex; justify-content: space-between; padding: 0.9rem 0; border-bottom: 1px solid var(--border-color); font-weight: 500; }
 
-    /* MAP */
-    .map-wrapper {
-      position: relative; width: 100%; height: 380px; margin-top: 4rem;
-      border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
-      background: var(--gray); overflow: hidden;
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      background: var(--black);
+      position: relative;
     }
-    .map-placeholder {
-      position: absolute; inset: 0; z-index: 2; background: var(--gray);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 2rem;
-    }
-    .map-placeholder p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; max-width: 420px; }
-    .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
 
-    /* FOOTER */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .rating-card {
+      background: #4a1505;
+      padding: 30px;
+      display: inline-block;
+      max-width: 200px;
+      text-align: center;
+    }
+
+    .rating-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .rating-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 5px;
+      color: var(--muted);
+    }
+
+    /* ==========================================================================
+       SERVICES SECTION
+       ========================================================================== */
+    .services-section {
+      padding: 80px 0;
+      background-color: var(--black);
+    }
+
+    .service-list {
+      margin-top: 40px;
+    }
+
+    .service-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .service-name {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .service-number {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .service-price {
+      color: var(--gold);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       CONTACT & HOURS SECTION
+       ========================================================================== */
+    .contact-section {
+      padding: 100px 0;
+      background-color: var(--black);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      margin-top: 25px;
+    }
+
+    .contact-info h3:first-child {
+      margin-top: 0;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background: #2a1208;
+      color: var(--gold);
+      padding: 15px 25px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 30px;
+      border: 1px solid rgba(200, 149, 81, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background: #3d1b0c;
+    }
+
+    .maps-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 15px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    .hours-table {
+      width: 100%;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.95rem;
+    }
+
+    .hours-day {
+      color: var(--white);
+    }
+
+    .hours-time {
+      color: var(--muted);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
     footer {
-      background: var(--gray); border-top: 1px solid var(--border-color);
-      padding: 2.5rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
-      position: relative; z-index: 10; width: 100%;
+      background-color: var(--black);
+      padding: 40px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .footer-logo { font-weight: 800; font-size: 1.6rem; text-transform: uppercase; color: var(--white); }
-    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .footer-links a { font-size: .7rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
-    .footer-links a:hover { color: var(--gold); }
 
-    /* PHONE FLOAT BUTTON */
-    .phone-float {
-      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 300;
-      width: 52px; height: 52px; border-radius: 50%; background: var(--gold);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,.3); text-decoration: none;
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
     }
-    .phone-float svg { width: 24px; height: 24px; fill: #ffffff; }
 
-    /* MOBILE */
-    @media (max-width: 860px) {
-      nav { padding: 0.8rem 1rem; }
-      .nav-links { display: none; }
-      .section { padding: 4.5rem 1.2rem; }
-      #about, .contact-grid, .reviews-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .service-name-txt { font-size: 1.2rem; }
-      .service-price-badge { font-size: 1.1rem; }
-      footer { flex-direction: column; align-items: flex-start; }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Floating WhatsApp Icon */
+    .float-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #25d366;
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .hero-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none; /* vereinfacht für Mobilansicht */
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<a class="phone-float" href="tel:083318336741" aria-label="Jetzt anrufen">
-  <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-</a>
-
-<nav id="nav">
-  <a class="nav-logo-wrap" href="#hero">
-    <img src="LogoElegance.png" onerror="this.onerror=null; this.src='LogoElegance.jpg';" alt="Logo" class="brand-logo">
-    <span class="nav-logo-text">ELEGANCE<span>.</span></span>
-  </a>
-
-  <div class="nav-center-status">
-    <span id="statusDot" class="status-dot"></span>
-    <span id="statusText">Prüfe Status...</span>
-  </div>
-
-  <ul class="nav-links">
-    <li><a href="#about">Über uns</a></li>
-    <li><a href="#services">Leistungen</a></li>
-    <li><a href="#reviews">Bewertungen</a></li>
-    <li><a href="#contact" class="nav-cta">Kontakt</a></li>
-  </ul>
-</nav>
-
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="hero-tag">Memmingen · Seit über 3 Jahren Ihr Vertrauen</span>
-    <h1 class="hero-title">
-      <span class="line1">ELEGANCE</span>
-      <span class="line2">Barbershop</span>
-    </h1>
-    <p class="hero-sub">Traditionelles Barber-Handwerk in Memmingen</p>
-    <div class="hero-divider"></div>
-    <div>
-      <a href="tel:083318336741" class="btn-gold"><span>Jetzt anrufen</span></a>
-    </div>
-    <div class="hero-rating">
-      <a href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen" target="_blank" rel="noopener noreferrer">
-        <div class="score">4.7 ★★★★★</div>
-        <div class="count">141 Google-Bewertungen ↗</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <div class="marquee-content">
-      <span class="marquee-item">ELEGANCE BARBERSHOP</span><span class="marquee-item">✦</span>
-      <span class="marquee-item">MEMMINGEN</span><span class="marquee-item">✦</span>
-      <span class="marquee-item">HAARSCHNITT</span><span class="marquee-item">✦</span>
-      <span class="marquee-item">BARTPFLEGE</span><span class="marquee-item">✦</span>
-      <span class="marquee-item">STIL & PRÄZISION</span><span class="marquee-item">✦</span>
-    </div>
-    <div class="marquee-content">
-      <span class="marquee-item">ELEGANCE BARBERSHOP</span><span class="marquee-item">✦</span>
-      <span class="marquee-item">MEMMINGEN</span><span class="marquee-item">✦</span>
-      <span class="marquee-item">HAARSCHNITT</span><span class="marquee-item">✦</span>
-      <span class="marquee-item">BARTPFLEGE</span><span class="marquee-item">✦</span>
-      <span class="marquee-item">STIL & PRÄZISION</span><span class="marquee-item">✦</span>
-    </div>
-  </div>
-</div>
-
-<div class="trust-bar">
-  <a class="icon-btn" href="https://maps.google.com/?q=Hinter+dem+Salzstadel+1,+87700+Memmingen" target="_blank" rel="noopener noreferrer" aria-label="Google Reviews">
-    <svg viewBox="0 0 24 24"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.761H12.545z"/></svg>
-    Google Reviews
-  </a>
-  <a class="icon-btn" href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    Facebook
-  </a>
-  <a class="icon-btn" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    Instagram
-  </a>
-</div>
-
-<section id="about" class="section">
-  <div class="about-left">
-    <span class="label">Über uns</span>
-    <h2 class="big-title">HANDWERK<br>MIT <em>Stil</em></h2>
-    <div style="height:1.5rem"></div>
-    <p class="body-text">Willkommen bei <strong>Elegance Barbershop</strong> – Ihrem Premium-Barbier im Herzen Memmingens. Wir verbinden klassische Handwerkskunst mit modernen Techniken.</p>
-    <p class="body-text" style="margin-top:1rem">Unsere Kunden vertrauen uns seit Jahren. Viele kommen seit über <strong>3 Jahren</strong> regelmäßig zu uns – dieses Vertrauen verpflichtet uns täglich aufs Neue.</p>
-  </div>
-  <div class="about-right">
-    <div class="about-img"></div>
-    <div class="about-num">
-      <span class="n">4.7</span>
-      <span style="font-size:.6rem; text-transform:uppercase;">Google Rating</span>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="section">
-  <span class="label">Leistungen & Preise</span>
-  <h2 class="big-title" style="margin-bottom:3rem;">UNSERE SERVICES</h2>
-  <div class="services-list">
-    <div class="service-item">
-      <button class="service-trigger" onclick="toggleService(0)">
-        <div><span class="service-num">01</span><span class="service-name-txt">HERRENHAARSCHNITT</span></div>
-        <span class="service-price-badge">ab 20 €</span>
-      </button>
-      <div class="service-body"><p class="body-text">Beratung · Waschen · Schneiden · Trocknen · Styling (ca. 30–45 Min.)</p></div>
-    </div>
-    <div class="service-item">
-      <button class="service-trigger" onclick="toggleService(1)">
-        <div><span class="service-num">02</span><span class="service-name-txt">BARTPFLEGE & RASUR</span></div>
-        <span class="service-price-badge">ab 12 €</span>
-      </button>
-      <div class="service-body"><p class="body-text">Beratung · Trimmen · Formen · Konturierung · Rasur (ca. 20–30 Min.)</p></div>
-    </div>
-    <div class="service-item">
-      <button class="service-trigger" onclick="toggleService(2)">
-        <div><span class="service-num">03</span><span class="service-name-txt">FADE & UNDERCUT</span></div>
-        <span class="service-price-badge">ab 22 €</span>
-      </button>
-      <div class="service-body"><p class="body-text">Präzise Übergänge · Skin Fade · High/Mid/Low Fade · Styling (ca. 40–55 Min.)</p></div>
-    </div>
-    <div class="service-item">
-      <button class="service-trigger" onclick="toggleService(3)">
-        <div><span class="service-num">04</span><span class="service-name-txt">KOMPLETT-PAKET</span></div>
-        <span class="service-price-badge">ab 30 €</span>
-      </button>
-      <div class="service-body"><p class="body-text">Schnitt + Bart + Styling – alles in einem Termin (ca. 60–75 Min.)</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="reviews" class="section">
-  <span class="label">Kundenstimmen</span>
-  <h2 class="big-title">WAS UNSERE KUNDEN SAGEN</h2>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-quote">„Bester Friseur – vor allem das beste Personal. Schneide seit über 3 Jahren dort.“</p>
-      <span style="font-size:.65rem; color:var(--muted)">Simon B. · GOOGLE</span>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-quote">„Sehr gut. Bin zufriedener Stammkunde.“</p>
-      <span style="font-size:.65rem; color:var(--muted)">Vladyslav R. · GOOGLE</span>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-quote">„Professionell, freundlich und immer präzise. Klare Empfehlung für jeden Mann in Memmingen.“</p>
-      <span style="font-size:.65rem; color:var(--muted)">Stammkunde · GOOGLE</span>
-    </div>
-  </div>
-</section>
-
-<section id="contact" style="background: var(--black); padding-top: 6rem;">
-  <div class="contact-grid" style="padding: 0 1.5rem;">
-    <div>
-      <span class="label">Besuchen Sie uns</span>
-      <h2 class="big-title" style="margin-bottom:2rem;">KONTAKT & LAGE</h2>
-      
-      <div class="contact-detail">
-        <span class="label">Adresse</span>
-        <p class="body-text">Hinter dem Salzstadel 1<br>87700 Memmingen</p>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-container">
+      <div class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-scissors"></i></div>
+        ELEGANCE.
+        <span class="status-badge">
+          <span class="status-dot"></span> GESCHLOSSEN
+        </span>
       </div>
-      
-      <div class="contact-detail">
-        <span class="label">Telefon</span>
-        <p class="body-text"><a href="tel:083318336741">08331 8336741</a></p>
-      </div>
+      <nav class="nav-links">
+        <a href="#about">Über uns</a>
+        <a href="#services">Leistungen</a>
+        <a href="#reviews">Bewertungen</a>
+        <a href="#contact" class="btn-contact">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="contact-detail">
-        <span class="label">Social & Connect</span>
-        <div class="social-icons-row">
-          <a class="icon-btn" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a class="icon-btn" href="https://www.facebook.com/p/Elegance-100063620646990/" target="_blank" rel="noopener noreferrer" title="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <!-- Hero Text/Inhalt -->
+      </div>
+      <div>
+        <div class="rating-card">
+          <div class="rating-number">4.7</div>
+          <div class="rating-label">Google Rating</div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div>
-      <span class="label">Öffnungszeiten</span>
-      <div class="hours-row"><span>Montag</span><span>09:00 – 18:30</span></div>
-      <div class="hours-row"><span>Dienstag</span><span>09:00 – 18:30</span></div>
-      <div class="hours-row"><span>Mittwoch</span><span>09:00 – 18:30</span></div>
-      <div class="hours-row"><span>Donnerstag</span><span>09:00 – 18:30</span></div>
-      <div class="hours-row"><span>Freitag</span><span>09:00 – 18:30</span></div>
-      <div class="hours-row"><span>Samstag</span><span>09:00 – 16:00</span></div>
-      <div class="hours-row" style="opacity:.4"><span>Sonntag</span><span>Geschlossen</span></div>
+  <!-- SERVICES -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <span class="section-subtitle">Leistungen & Preise</span>
+      <h2 class="section-title">Unsere Services</h2>
+      
+      <div class="service-list">
+        <div class="service-item">
+          <div class="service-name">
+            <span class="service-number">01</span> Herrenhaarschnitt
+          </div>
+          <div class="service-price">ab 20 €</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="map-wrapper" id="mapContainer">
-    <div class="map-placeholder" id="mapPlaceholder">
-      <p>Aus Datenschutzgründen wird Google Maps erst nach Ihrer Aktivierung geladen.</p>
-      <button onclick="loadGoogleMap()" class="btn-gold">
-        📍 Karte aktivieren & laden
-      </button>
+  <!-- CONTACT & HOURS -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Kontakt & Lage</h2>
+      
+      <div class="contact-grid">
+        <!-- Details Left -->
+        <div class="contact-info">
+          <h3>Adresse</h3>
+          <p>Hinter dem Salzstadel 1<br>87700 Memmingen</p>
+
+          <h3>Telefon</h3>
+          <p>08331 8336741</p>
+
+          <h3>Social Media</h3>
+          <p><a href="#">Facebook – Elegance Barbershop ↗</a></p>
+
+          <a href="https://wa.me/4983318336741" class="whatsapp-btn">WhatsApp Schreiben →</a>
+          
+          <button class="maps-btn">In Google Maps öffnen →</button>
+        </div>
+
+        <!-- Hours Right -->
+        <div class="hours-container">
+          <div class="hours-table">
+            <div class="hours-row">
+              <span class="hours-day">Montag</span>
+              <span class="hours-time">09:00 – 18:30</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Dienstag</span>
+              <span class="hours-time">09:00 – 18:30</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Mittwoch</span>
+              <span class="hours-time">09:00 – 18:30</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Donnerstag</span>
+              <span class="hours-time">09:00 – 18:30</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Freitag</span>
+              <span class="hours-time">09:00 – 18:30</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Samstag</span>
+              <span class="hours-time">09:00 – 16:00</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sonntag</span>
+              <span class="hours-time">Geschlossen</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <span class="footer-logo">ELEGANCE<span>.</span></span>
-  <span style="font-size:.65rem; color:var(--muted)">© Elegance Barbershop Memmingen</span>
-  <div class="footer-links">
-    <a href="#hero">Start</a>
-    <a href="#services">Leistungen</a>
-    <a href="#reviews">Bewertungen</a>
-    <a href="#contact">Kontakt</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-  </div>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <div>
+        <strong>ELEGANCE.</strong> &copy; Elegance Barbershop Memmingen
+      </div>
+      <div class="footer-links">
+        <a href="#">Start</a>
+        <a href="#services">Leistungen</a>
+        <a href="#reviews">Bewertungen</a>
+        <a href="#contact">Kontakt</a>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
 
-<script>
-  function toggleService(index) {
-    document.querySelectorAll('.service-item').forEach((item, i) => {
-      item.classList.toggle('open', i === index && !item.classList.contains('open'));
-      if (i !== index) item.classList.remove('open');
-    });
-  }
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/4983318336741" class="float-whatsapp" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
-  function loadGoogleMap() {
-    const container = document.getElementById('mapContainer');
-    document.getElementById('mapPlaceholder').remove();
-    
-    const iframe = document.createElement('iframe');
-    iframe.src = "https://maps.google.com/maps?q=Hinter+dem+Salzstadel+1,+87700+Memmingen&t=&z=15&ie=UTF8&iwloc=&output=embed";
-    iframe.loading = "lazy";
-    iframe.title = "Google Maps Standort Elegance Barbershop";
-    
-    container.appendChild(iframe);
-  }
-
-  function updateBusinessStatus() {
-    const now = new Date();
-    const day = now.getDay();
-    const currentTime = now.getHours() * 60 + now.getMinutes();
-
-    const dot = document.getElementById('statusDot');
-    const text = document.getElementById('statusText');
-
-    let isOpen = false;
-
-    if (day >= 1 && day <= 5) {
-      if (currentTime >= 540 && currentTime < 1110) isOpen = true;
-    } else if (day === 6) {
-      if (currentTime >= 540 && currentTime < 960) isOpen = true;
-    }
-
-    if (isOpen) {
-      dot.className = 'status-dot open';
-      text.textContent = 'Jetzt geöffnet';
-    } else {
-      dot.className = 'status-dot closed';
-      text.textContent = 'Geschlossen';
-    }
-  }
-
-  updateBusinessStatus();
-  setInterval(updateBusinessStatus, 60000);
-</script>
 </body>
 </html>
