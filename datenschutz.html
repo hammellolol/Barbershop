@@ -3,89 +3,29 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#000000"/>
+  <meta name="robots" content="noindex"/>
   <title>Datenschutzerklärung | Elegance Barbershop Memmingen</title>
+  <link rel="icon" type="image/png" href="LogoElegance.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    :root {
-      --black: #000000;
-      --gray: #0d0d0d;
-      --white: #ffffff;
-      --muted: #aaaaaa;
-      --gold: #d4af37;
-      --border-color: rgba(212, 175, 55, 0.2);
-    }
-
-    @media (prefers-color-scheme: light) {
-      :root {
-        --black: #ffffff;
-        --gray: #f4f4f6;
-        --white: #0f0f0f;
-        --muted: #555555;
-        --gold: #b8860b;
-        --border-color: rgba(0, 0, 0, 0.12);
-      }
-    }
-
+    :root { --black:#000; --white:#fff; --muted:#b3b3b3; --gold:#d4af37; }
     body {
-      background: var(--black);
-      color: var(--white);
+      background: var(--black); color: var(--white);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      padding: 3rem 1.5rem;
-      max-width: 800px;
-      margin: 0 auto;
+      line-height: 1.6; padding: 3rem 1.5rem; max-width: 800px; margin: 0 auto;
     }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 2.5rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--white);
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      border-bottom: 2px solid var(--gold);
-      padding-bottom: 0.5rem;
-    }
-
-    h2 {
-      color: var(--gold);
-      margin-top: 2rem;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    p, li {
-      color: var(--muted);
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-
-    ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .back-link { display: inline-block; margin-bottom: 2.5rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; font-size: .8rem; color: var(--gold); text-decoration: none; padding: .4rem 0; }
+    h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); font-weight: 900; margin-bottom: 2rem; text-transform: uppercase; border-bottom: 2px solid var(--gold); padding-bottom: .5rem; }
+    h2 { color: var(--gold); margin-top: 2rem; margin-bottom: .8rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: .05em; }
+    p, li { color: var(--muted); margin-bottom: 1rem; font-size: .95rem; }
+    p strong { color: var(--white); }
+    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    a { color: var(--gold); }
+    .todo { color: #ffcc66; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(212,175,55,.25); display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    footer a { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -96,33 +36,10 @@
 
   <h2>1. Datenschutz auf einen Blick</h2>
   <p><strong>Allgemeine Hinweise</strong><br>
-  Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+  Die folgenden Hinweise geben einen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
 
   <h2>2. Verantwortliche Stelle</h2>
-  <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+  <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
   <p>
     Elegance Barbershop<br>
-    Hinter dem Salzstadel 1<br>
-    87700 Memmingen<br><br>
-    Telefon: 08331 8336741
-  </p>
-
-  <h2>3. Datenerfassung auf unserer Website</h2>
-  <p><strong>Server-Log-Dateien</strong><br>
-  Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind z.B. Browsertyp, Betriebssystem, Referrer URL sowie Uhrzeit der Serveranfrage.</p>
-
-  <h2>4. Einbindung von Diensten Dritter</h2>
-  <p><strong>Google Maps (Zwei-Klick-Lösung)</strong><br>
-  Wir binden die Landkarten des Dienstes "Google Maps" des Anbieters Google LLC ein. Aus Datenschutzgründen wird die Karte erst geladen, wenn Sie aktiv auf den Button "Karte aktivieren" klicken. Erst dadurch wird eine Verbindung zu den Servern von Google hergestellt.</p>
-
-  <h2>5. Ihre Rechte</h2>
-  <p>Sie haben jederzeit das Recht:</p>
-  <ul>
-    <li>Auskunft über Ihre bei uns gespeicherten Daten zu erhalten,</li>
-    <li>Die Berichtigung oder Löschung dieser Daten zu verlangen,</li>
-    <li>Die Einschränkung der Datenverarbeitung zu fordern,</li>
-    <li>Sich bei einer Aufsichtsbehörde zu beschweren.</li>
-  </ul>
-
-</body>
-</html>
+    <span class="todo">[Name des Inhabers – bitte ergänzen]</span><br>
